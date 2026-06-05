@@ -34,7 +34,7 @@
 
   // ── 2. Inject layout toggle widget ───────────────────────────
   document.body.insertAdjacentHTML('beforeend',
-    '<div class="layout-toggle">' +
+    '<aside class="layout-toggle" aria-label="Display settings">' +
       '<div class="layout-toggle-group">' +
         '<span class="layout-toggle-label">Align</span>' +
         '<button class="layout-toggle-btn" data-group="align" data-value="center">Center</button>' +
@@ -53,7 +53,7 @@
         '<button class="layout-toggle-btn" data-group="theme" data-value="light">Light</button>' +
         '<button class="layout-toggle-btn" data-group="theme" data-value="dark">Dark</button>' +
       '</div>' +
-    '</div>'
+    '</aside>'
   );
 
   // ── 3. Wire up interactions ───────────────────────────────────
