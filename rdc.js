@@ -21,6 +21,11 @@
 (function () {
   'use strict';
 
+  // ── 0. Keyboard-accessible scrollable code blocks ────────────
+  document.querySelectorAll('pre').forEach(function (el) {
+    el.setAttribute('tabindex', '0');
+  });
+
   // ── 1. Apply saved size / align preferences ──────────────────
   var prefs = {};
   try { prefs = JSON.parse(localStorage.getItem('rdc-prefs') || '{}'); } catch (e) {}
