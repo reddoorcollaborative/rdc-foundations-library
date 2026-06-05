@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDC Foundations Library — Red Door Collaborative</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./rdc.css">
+</head>
+<body>
+
+<!-- ============================================================
+     SIDEBAR NAVIGATION
+============================================================ -->
+<nav class="sidebar">
+  <a href="#" class="sidebar-logo">
+    <div class="logo-mark">rd</div>
+    <div class="logo-text">Foundations Library<span>Red Door Collaborative</span></div>
+  </a>
+
+  <span class="nav-section-label">Get started</span>
+  <a class="nav-link active" href="#quick-start">Quick start</a>
+  <a class="nav-link" href="#claude">Using with Claude</a>
+
+  <span class="nav-section-label">Brand</span>
+  <a class="nav-link" href="#colors">Colors</a>
+  <a class="nav-link" href="#typography">Typography</a>
+  <a class="nav-link" href="#spacing">Spacing & radius</a>
+
+  <span class="nav-section-label">Components</span>
+  <a class="nav-link" href="#buttons">Buttons</a>
+  <a class="nav-link" href="#badges">Badges</a>
+  <a class="nav-link" href="#cards">Cards</a>
+  <a class="nav-link" href="#alerts">Alerts</a>
+  <a class="nav-link" href="#tables">Tables</a>
+
+  <span class="nav-section-label">Output</span>
+  <a class="nav-link" href="#templates">Templates</a>
+  <a class="nav-link" href="#guidelines">Guidelines</a>
+  <a class="nav-link" href="#multi-brand">Multi-brand</a>
+
+  <div class="sidebar-version">v2.0 · June 2026</div>
+</nav>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="sidebar-content">
+<div class="sidebar-inner">
+
+  <!-- HERO -->
+  <div class="page-header" style="margin-bottom:var(--space-16);">
+    <div class="eyebrow">Red Door Collaborative</div>
+    <h1 class="page-header-title">Foundations Library</h1>
+    <p class="page-header-desc">The single source of truth for all RDC HTML output. Import one stylesheet and one script — your page is on-brand by default.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <span class="header-meta-label">CSS</span>
+        <span class="header-meta-value">rdc.css v2.0</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">JS</span>
+        <span class="header-meta-value">rdc.js v2.0</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Templates</span>
+        <span class="header-meta-value">5 types</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Guidelines</span>
+        <span class="header-meta-value">Brand · Voice · Style</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── QUICK START ─────────────────────────────────────────── -->
+  <div class="section" id="quick-start">
+    <div class="section-eyebrow">Get started</div>
+    <h2 class="section-title">Quick start</h2>
+    <p class="section-desc">Two CDN links give you every token, component, and utility in the system.</p>
+
+    <div class="card" style="margin-bottom:var(--space-6);">
+      <div class="subsection-label">In &lt;head&gt;</div>
+      <pre style="margin:0;"><span style="color:var(--gray-500);">&lt;!-- FOUC prevention: keep inline, runs before CSS paints --&gt;</span>
+&lt;script&gt;(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');
+document.documentElement.setAttribute('data-theme',p.theme||
+(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+}catch(e){}})();&lt;/script&gt;
+
+<span style="color:var(--gray-500);">&lt;!-- Fonts (DM Sans + DM Mono) --&gt;</span>
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt;
+
+<span style="color:var(--coral);">&lt;link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css"&gt;</span></pre>
+    </div>
+
+    <div class="card">
+      <div class="subsection-label">Before &lt;/body&gt;</div>
+      <pre style="margin:0;"><span style="color:var(--coral);">&lt;script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"&gt;&lt;/script&gt;</span></pre>
+    </div>
+  </div>
+
+
+  <!-- ── CLAUDE PROMPT ───────────────────────────────────────── -->
+  <div class="section" id="claude">
+    <div class="section-eyebrow">Get started</div>
+    <h2 class="section-title">Using with Claude</h2>
+    <p class="section-desc">Paste this into any Claude Project instruction or conversation to get on-brand HTML automatically.</p>
+
+    <div class="card">
+      <pre style="margin:0;font-size:12px;line-height:1.7;">You are creating an HTML deliverable for Red Door Collaborative (RDC).
+
+ALWAYS include in &lt;head&gt;:
+  &lt;script&gt;(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');
+  document.documentElement.setAttribute('data-theme',p.theme||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+  }catch(e){}})();&lt;/script&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt;
+  &lt;link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css"&gt;
+
+ALWAYS include before &lt;/body&gt;:
+  &lt;script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"&gt;&lt;/script&gt;
+
+BRAND: Coral #FF4F58 (CTAs) · Squid #0D1724 (dark bg) · Wine #7F0046 (accent) · Mist #ABDCE0 (soft accent)
+RULES: Sentence case headings · Coral = primary CTA · All buttons use .btn (pill shape automatic)
+DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
+    </div>
+  </div>
+
+
+  <!-- ── COLORS ──────────────────────────────────────────────── -->
+  <div class="section" id="colors">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Colors</h2>
+    <p class="section-desc">Four brand colors plus a neutral scale. Use CSS tokens — never hardcoded hex in HTML.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Brand palette</div>
+      <div class="grid-4" style="margin-bottom:var(--space-6);">
+        <div>
+          <div style="height:80px;background:#FF4F58;border-radius:var(--radius-md);margin-bottom:10px;"></div>
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Coral</div>
+          <div class="mono">#FF4F58 · --coral</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Primary CTA, links, eyebrows</div>
+        </div>
+        <div>
+          <div style="height:80px;background:#0D1724;border-radius:var(--radius-md);margin-bottom:10px;"></div>
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Squid</div>
+          <div class="mono">#0D1724 · --squid</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Dark bg, authority type</div>
+        </div>
+        <div>
+          <div style="height:80px;background:#7F0046;border-radius:var(--radius-md);margin-bottom:10px;"></div>
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Wine</div>
+          <div class="mono">#7F0046 · --wine</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Secondary accent</div>
+        </div>
+        <div>
+          <div style="height:80px;background:#ABDCE0;border-radius:var(--radius-md);margin-bottom:10px;border:1px solid var(--gray-200);"></div>
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Mist</div>
+          <div class="mono">#ABDCE0 · --mist</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Soft accent only</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Surface + page</div>
+      <div class="grid-4">
+        <div>
+          <div style="height:48px;background:#F7F6F4;border-radius:var(--radius-md);margin-bottom:8px;border:1px solid var(--gray-200);"></div>
+          <div class="mono">#F7F6F4 · --page-bg</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Page background (auto)</div>
+        </div>
+        <div>
+          <div style="height:48px;background:#F3F3F3;border-radius:var(--radius-md);margin-bottom:8px;border:1px solid var(--gray-200);"></div>
+          <div class="mono">#F3F3F3 · --gray-100</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Card backgrounds</div>
+        </div>
+        <div>
+          <div style="height:48px;background:#E8E8E8;border-radius:var(--radius-md);margin-bottom:8px;"></div>
+          <div class="mono">#E8E8E8 · --gray-200</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Borders, dividers</div>
+        </div>
+        <div>
+          <div style="height:48px;background:#888888;border-radius:var(--radius-md);margin-bottom:8px;"></div>
+          <div class="mono">#888888 · --gray-500</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Muted text, labels</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── TYPOGRAPHY ──────────────────────────────────────────── -->
+  <div class="section" id="typography">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-desc">DM Sans for all HTML deliverables — the approved substitute for licensed Suisse Int'l.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Type scale</div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-4);">
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h1</span>
+          <h1 style="margin:0;line-height:1;">Heading one</h1>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h2</span>
+          <h2 style="margin:0;line-height:1;">Heading two</h2>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h3</span>
+          <h3 style="margin:0;">Heading three</h3>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">body</span>
+          <p style="margin:0;">Body text at 15px / 1.7 line-height. Human-first, direct, never jargon-heavy. Red Door writes like it speaks.</p>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">eyebrow</span>
+          <span class="eyebrow">Eyebrow label</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">code</span>
+          <code>inline code example</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Rules</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Sentence case for all headings: "Content style guidelines"</p>
+          <p style="margin-top:8px;">Max 3 font weights per page.</p>
+          <p style="margin-top:8px;">DM Sans at weight 300–700 from Google Fonts.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Title case: "Content Style Guidelines"</p>
+          <p style="margin-top:8px;">Mix Suisse Int'l and DM Sans in the same HTML file.</p>
+          <p style="margin-top:8px;">Override heading letter-spacing — it's calibrated.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── SPACING ─────────────────────────────────────────────── -->
+  <div class="section" id="spacing">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Spacing & border radius</h2>
+    <p class="section-desc">8pt base grid with 4px increments. Use CSS tokens — never magic numbers.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Spacing tokens</div>
+      <table class="table-rdc">
+        <thead><tr><th>Token</th><th>Value</th><th>Common use</th></tr></thead>
+        <tbody>
+          <tr><td><code>--space-2</code></td><td>8px</td><td>Tight gaps, inline spacing</td></tr>
+          <tr><td><code>--space-4</code></td><td>16px</td><td>Component padding, form fields</td></tr>
+          <tr><td><code>--space-6</code></td><td>24px</td><td>Card padding, section gaps</td></tr>
+          <tr><td><code>--space-8</code></td><td>32px</td><td>Section separation</td></tr>
+          <tr><td><code>--space-12</code></td><td>48px</td><td>Major section breaks</td></tr>
+          <tr><td><code>--space-16</code></td><td>64px</td><td>Page-level breathing room</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Border radius tokens</div>
+      <div class="grid-4" style="gap:var(--space-4);">
+        <div style="background:var(--coral);height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">sm · 4px</span></div>
+        <div style="background:var(--coral);height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">md · 8px</span></div>
+        <div style="background:var(--coral);height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">lg · 12px</span></div>
+        <div style="background:var(--coral);height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">pill · 999px</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── BUTTONS ─────────────────────────────────────────────── -->
+  <div class="section" id="buttons">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-desc">All buttons use pill border-radius via <code>.btn</code>. Coral is always the primary action.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Filled</div>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-6);">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-dark">Dark</button>
+        <button class="btn btn-wine">Wine</button>
+      </div>
+      <div class="subsection-label">Outlined & ghost</div>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-6);">
+        <button class="btn btn-outline-coral">Outline coral</button>
+        <button class="btn btn-outline-dark">Outline dark</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+      <div class="subsection-label">Sizes</div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── BADGES ──────────────────────────────────────────────── -->
+  <div class="section" id="badges">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Badges</h2>
+    <p class="section-desc">Inline status indicators and category labels.</p>
+
+    <div class="tag-row">
+      <span class="badge badge-coral">Coral</span>
+      <span class="badge badge-squid">Squid</span>
+      <span class="badge badge-wine">Wine</span>
+      <span class="badge badge-mist">Mist</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-warning">Warning</span>
+      <span class="badge badge-neutral">Neutral</span>
+    </div>
+  </div>
+
+
+  <!-- ── CARDS ───────────────────────────────────────────────── -->
+  <div class="section" id="cards">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Cards</h2>
+    <p class="section-desc">Three card types for navigational, editorial, and metric use cases.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Doc card — navigational link</div>
+      <div class="grid-3">
+        <a href="#" class="doc-card">
+          <div class="doc-card-bar"></div>
+          <div class="doc-card-body">
+            <div class="eyebrow">Brand · Current</div>
+            <h3>Brand identity</h3>
+            <p>Colors, typography, logo usage, and spacing tokens.</p>
+            <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+          </div>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="doc-card-bar" style="background:var(--squid);"></div>
+          <div class="doc-card-body">
+            <div class="eyebrow">Internal · Restricted</div>
+            <h3>Operations playbook</h3>
+            <p>Team processes, SOPs, and operational runbooks.</p>
+            <div class="doc-card-lock">Password-protected</div>
+          </div>
+        </a>
+        <a href="#" class="doc-card">
+          <div class="doc-card-bar" style="background:var(--wine);"></div>
+          <div class="doc-card-body">
+            <div class="eyebrow">Client · Active</div>
+            <h3>Azure brand library</h3>
+            <p>Microsoft Azure visual brand reference for RDC team members.</p>
+            <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Metric card — dashboards</div>
+      <div class="grid-4">
+        <div class="metric-card">
+          <div class="metric-label">Active projects</div>
+          <div class="metric-value">24</div>
+          <div class="metric-delta">↑ +6 this quarter</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Team members</div>
+          <div class="metric-value">18</div>
+          <div class="metric-sub">Across 4 disciplines</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Deliverables</div>
+          <div class="metric-value">142</div>
+          <div class="metric-delta">↑ +23 YoY</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Client satisfaction</div>
+          <div class="metric-value">97%</div>
+          <div class="metric-sub">FY26 average</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── ALERTS ──────────────────────────────────────────────── -->
+  <div class="section" id="alerts">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Alerts</h2>
+    <p class="section-desc">Inline status messages and page-level banners.</p>
+
+    <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-6);">
+      <div class="alert alert-coral">
+        <div class="alert-dot"></div>
+        <div class="alert-body"><div class="alert-title">Brand alert</div>Use Coral for brand-specific notices and warnings.</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-dot"></div>
+        <div class="alert-body"><div class="alert-title">Info</div>Informational notice for general context or guidance.</div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-dot"></div>
+        <div class="alert-body"><div class="alert-title">Success</div>Confirmation that an action completed successfully.</div>
+      </div>
+      <div class="alert alert-warning">
+        <div class="alert-dot"></div>
+        <div class="alert-body"><div class="alert-title">Warning</div>Something needs attention before proceeding.</div>
+      </div>
+    </div>
+    <div class="alert-banner">
+      <strong>Banner alert:</strong> Full-width accent strip for page-level notices. Use sparingly.
+    </div>
+  </div>
+
+
+  <!-- ── TABLES ──────────────────────────────────────────────── -->
+  <div class="section" id="tables">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Tables</h2>
+    <p class="section-desc">Use <code>.table-rdc</code> for all data tables. Add <code>.striped</code> for alternating rows.</p>
+
+    <table class="table-rdc">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Class</th>
+          <th>Use</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Button</td>
+          <td><code>.btn</code></td>
+          <td>All interactive actions</td>
+          <td><span class="badge badge-success">Stable</span></td>
+        </tr>
+        <tr>
+          <td>Doc card</td>
+          <td><code>.doc-card</code></td>
+          <td>Navigation links</td>
+          <td><span class="badge badge-success">Stable</span></td>
+        </tr>
+        <tr>
+          <td>Metric card</td>
+          <td><code>.metric-card</code></td>
+          <td>KPIs and dashboards</td>
+          <td><span class="badge badge-success">Stable</span></td>
+        </tr>
+        <tr>
+          <td>Alert</td>
+          <td><code>.alert</code></td>
+          <td>Status messages</td>
+          <td><span class="badge badge-success">Stable</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ── TEMPLATES ───────────────────────────────────────────── -->
+  <div class="section" id="templates">
+    <div class="section-eyebrow">Output</div>
+    <h2 class="section-title">Templates</h2>
+    <p class="section-desc">Starting points for every RDC HTML page type. Each template references this library via CDN — changing <code>rdc.css</code> or <code>rdc.js</code> updates all of them automatically.</p>
+
+    <div class="grid-auto">
+      <a href="./templates/hub.html" class="doc-card">
+        <div class="doc-card-bar"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Template</div>
+          <h3>Hub</h3>
+          <p>Central landing page for a collection of documents or tools. Grid of doc cards with section headers.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./templates/document.html" class="doc-card">
+        <div class="doc-card-bar" style="background:var(--squid);"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Template</div>
+          <h3>Document</h3>
+          <p>Long-form article with fixed sidebar navigation. Best for knowledge base entries, SOPs, and guides.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./templates/brief.html" class="doc-card">
+        <div class="doc-card-bar" style="background:var(--wine);"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Template</div>
+          <h3>Brief</h3>
+          <p>Project brief, scoping document, or structured proposal. Narrow content column for reading focus.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./templates/report.html" class="doc-card">
+        <div class="doc-card-bar"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Template</div>
+          <h3>Report</h3>
+          <p>Metrics report, performance summary, or presentation. Metric cards, data tables, and narrative sections.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./templates/client-report.html" class="doc-card">
+        <div class="doc-card-bar" style="background:var(--squid);"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Template · Restricted</div>
+          <h3>Client report</h3>
+          <p>Password-protected deliverable for specific client access. StatiCrypt protection built in.</p>
+          <div class="doc-card-lock">Password-protected</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ── GUIDELINES ──────────────────────────────────────────── -->
+  <div class="section" id="guidelines">
+    <div class="section-eyebrow">Output</div>
+    <h2 class="section-title">Guidelines</h2>
+    <p class="section-desc">Living documents maintained by the design and content leads. Update these whenever brand decisions change.</p>
+
+    <div class="grid-3">
+      <a href="./guidelines/brand-identity.md" class="doc-card">
+        <div class="doc-card-bar"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Visual · Current</div>
+          <h3>Brand identity</h3>
+          <p>Colors, typography, logo rules, spacing, and dark mode guidance.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./guidelines/voice-tone.md" class="doc-card">
+        <div class="doc-card-bar" style="background:var(--wine);"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Content · In progress</div>
+          <h3>Voice & tone</h3>
+          <p>Our communication personality, tone calibration by context, and what to avoid.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+      <a href="./guidelines/content-style.md" class="doc-card">
+        <div class="doc-card-bar" style="background:var(--squid);"></div>
+        <div class="doc-card-body">
+          <div class="eyebrow">Content · In progress</div>
+          <h3>Content style</h3>
+          <p>Grammar, formatting, capitalization, dates, numbers, and document structure.</p>
+          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ── MULTI-BRAND ─────────────────────────────────────────── -->
+  <div class="section" id="multi-brand">
+    <div class="section-eyebrow">Output</div>
+    <h2 class="section-title">Multi-brand extension</h2>
+    <p class="section-desc">Client brand repos load RDC's foundation as a base, then override CSS custom properties. Structure and layout stay consistent; colors and brand identity are client-specific.</p>
+
+    <div class="card" style="margin-bottom:var(--space-4);">
+      <div class="subsection-label">Pattern</div>
+      <pre style="margin:0;">&lt;!-- 1. RDC base: structure, layout, all components --&gt;
+&lt;link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css"&gt;
+
+&lt;!-- 2. Client overrides: only CSS custom properties change --&gt;
+&lt;link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-azure-brand-library/azure.css"&gt;</pre>
+    </div>
+
+    <div class="card">
+      <div class="subsection-label">Example client override file (azure.css)</div>
+      <pre style="margin:0;"><span style="color:var(--gray-500);">/* Azure token overrides — all structural CSS comes from rdc.css */</span>
+:root {
+  --coral:  #0078d4;  <span style="color:var(--gray-500);">/* Microsoft blue replaces Coral */</span>
+  --squid:  #323130;  <span style="color:var(--gray-500);">/* Fluent neutral dark */</span>
+  --wine:   #005a9e;  <span style="color:var(--gray-500);">/* Azure deep blue */</span>
+  --page-bg: #faf9f8; <span style="color:var(--gray-500);">/* Fluent background */</span>
+  --font-sans: 'Segoe UI', system-ui, sans-serif;
+}</pre>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    Red Door Collaborative · Foundations Library · <a href="https://github.com/reddoorcollaborative/rdc-foundations-library">GitHub</a> · <a href="./CHANGELOG.md">Changelog</a>
+  </div>
+
+</div>
+</div>
+
+<script src="./rdc.js"></script>
+
+<script>
+/* Active nav link on scroll */
+var sections = document.querySelectorAll('.section[id]');
+var navLinks  = document.querySelectorAll('.nav-link[href^="#"]');
+window.addEventListener('scroll', function () {
+  var scrollY = window.scrollY + 80;
+  sections.forEach(function (s) {
+    if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) {
+      navLinks.forEach(function (l) { l.classList.remove('active'); });
+      var match = document.querySelector('.nav-link[href="#' + s.id + '"]');
+      if (match) match.classList.add('active');
+    }
+  });
+}, { passive: true });
+</script>
+</body>
+</html>

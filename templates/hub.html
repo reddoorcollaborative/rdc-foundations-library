@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Hub Title] — Red Door Collaborative</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css">
+</head>
+<body>
+
+<div class="wrap" style="max-width:980px;">
+
+  <!-- ============================================================
+       PAGE HEADER
+       Replace [Hub Title] and description.
+  ============================================================ -->
+  <div class="page-header">
+    <div class="eyebrow">Red Door Collaborative</div>
+    <h1 class="page-header-title">[Hub Title]</h1>
+    <p class="page-header-desc">[Brief description of this hub — what documents live here and who it's for.]</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION: Primary content
+       Duplicate this block for additional sections.
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">[Section label]</div>
+  <h2 style="font-size:20px;font-weight:600;color:var(--gray-900);margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid var(--gray-200);">[Section heading]</h2>
+  <p style="font-size:14px;color:var(--gray-700);margin:0 0 18px;">[One-sentence description of what this section contains.]</p>
+
+  <div class="grid-auto" style="margin-bottom:40px;">
+
+    <!-- Doc card: password-protected -->
+    <a href="#" class="doc-card">
+      <div class="doc-card-bar" style="background:var(--squid);"></div>
+      <div class="doc-card-body">
+        <div class="eyebrow">[Category · Status]</div>
+        <h3>[Document Title]</h3>
+        <p>[One to two sentences describing what this document contains and why it matters.]</p>
+        <div class="doc-card-lock">Password-protected</div>
+      </div>
+    </a>
+
+    <!-- Doc card: open access -->
+    <a href="#" class="doc-card">
+      <div class="doc-card-bar"></div>
+      <div class="doc-card-body">
+        <div class="eyebrow">[Category]</div>
+        <h3>[Document Title]</h3>
+        <p>[One to two sentences describing what this document contains.]</p>
+        <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+      </div>
+    </a>
+
+    <!-- Doc card: wine accent -->
+    <a href="#" class="doc-card">
+      <div class="doc-card-bar" style="background:var(--wine);"></div>
+      <div class="doc-card-body">
+        <div class="eyebrow">[Category]</div>
+        <h3>[Document Title]</h3>
+        <p>[One to two sentences describing what this document contains.]</p>
+        <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============================================================
+       ALERT: Access notice (remove if not needed)
+  ============================================================ -->
+  <div class="alert-banner" style="margin-bottom:var(--space-8);">
+    <strong>Access:</strong> [Any access instructions, passwords, or contact info for locked documents.]
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <div class="page-footer">
+    Red Door Collaborative &middot; [Hub Name] &middot; <a href="https://github.com/reddoorcollaborative">GitHub</a>
+  </div>
+
+</div>
+
+<script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"></script>
+</body>
+</html>
