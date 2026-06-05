@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Report Title] — Red Door Collaborative</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css">
+</head>
+<body>
+
+<div class="wrap-narrow">
+
+  <!-- ============================================================
+       PAGE HEADER
+  ============================================================ -->
+  <div class="page-header">
+    <div class="eyebrow">[Report type &middot; e.g., Performance Report · Q2 FY26]</div>
+    <h1 class="page-header-title">[Report Title]</h1>
+    <p class="page-header-desc">[One sentence describing what this report covers and the time period or scope.]</p>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <span class="header-meta-label">Period</span>
+        <span class="header-meta-value">[Month YYYY – Month YYYY]</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Client</span>
+        <span class="header-meta-value">[Client name]</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Prepared by</span>
+        <span class="header-meta-value">[Name]</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Issued</span>
+        <span class="header-meta-value">[Month DD, YYYY]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO METRICS
+       Add/remove metric cards as needed.
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:var(--space-3);">Key metrics</div>
+  <div class="grid-4" style="margin-bottom:var(--space-8);">
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-delta">↑ [+X vs prior period]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-delta">↑ [+X vs prior period]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-sub">[Context note]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-sub">[Context note]</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       EXECUTIVE SUMMARY
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Overview</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Executive summary</h2>
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <p>[2–3 sentences summarizing the most important findings. Lead with the single most significant result, then provide context. Write for an executive who reads only this paragraph.]</p>
+    <p>[Second paragraph if needed: what changed vs. prior period and what's driving it.]</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION: Performance detail
+       Duplicate this block for additional performance areas.
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">[Category label]</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">[Performance area — e.g., Content performance]</h2>
+
+  <div class="card" style="margin-bottom:var(--space-6);">
+    <table class="table-rdc">
+      <thead>
+        <tr>
+          <th>[Item]</th>
+          <th>[Metric A]</th>
+          <th>[Metric B]</th>
+          <th>[Metric C]</th>
+          <th>vs. prior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-success">↑ +12%</span></td>
+        </tr>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-coral">↓ −4%</span></td>
+        </tr>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-neutral">— 0%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <p style="font-size:14px;"><strong>Insight:</strong> [1–2 sentences explaining what the data above means for the client. What should they take away? What action does it suggest?]</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION: Campaign / initiative results
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">[Category label]</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">[Second performance area — e.g., Campaign results]</h2>
+
+  <div class="grid-2" style="margin-bottom:var(--space-8);">
+    <div class="content-card">
+      <div class="content-card-bar" style="background:var(--coral);"></div>
+      <div class="content-card-body">
+        <div class="content-card-eyebrow">[Campaign label]</div>
+        <div class="content-card-title">[Campaign name]</div>
+        <div class="content-card-copy">[2–3 sentences on results. What did this achieve? Key metrics vs. goals?]</div>
+        <div style="display:flex;gap:var(--space-4);margin-top:var(--space-2);">
+          <div><div class="metric-label" style="font-size:9px;">Reach</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+          <div><div class="metric-label" style="font-size:9px;">Engagement</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+          <div><div class="metric-label" style="font-size:9px;">Conversions</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bar" style="background:var(--wine);"></div>
+      <div class="content-card-body">
+        <div class="content-card-eyebrow">[Campaign label]</div>
+        <div class="content-card-title">[Campaign name]</div>
+        <div class="content-card-copy">[2–3 sentences on results.]</div>
+        <div style="display:flex;gap:var(--space-4);margin-top:var(--space-2);">
+          <div><div class="metric-label" style="font-size:9px;">Reach</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+          <div><div class="metric-label" style="font-size:9px;">Engagement</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+          <div><div class="metric-label" style="font-size:9px;">Conversions</div><div style="font-size:18px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">[Value]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLAGS & NOTICES
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Flags</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Notices &amp; flags</h2>
+  <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-8);">
+    <div class="alert alert-success">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">[Positive result to call out]</div>
+        [What drove this result and why it matters.]
+      </div>
+    </div>
+    <div class="alert alert-warning">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">[Area needing attention]</div>
+        [What's happening, why it's flagged, and what action is recommended.]
+      </div>
+    </div>
+    <div class="alert alert-info">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">[Informational note]</div>
+        [Context or upcoming change the client should know about.]
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NEXT PERIOD
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Forward look</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Next period priorities</h2>
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <table class="table-rdc">
+      <thead>
+        <tr><th>Priority</th><th>Activity</th><th>Owner</th><th>Target date</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-coral">High</span></td>
+          <td>[Priority activity for next period]</td>
+          <td>[Owner]</td>
+          <td class="mono">[MM/DD]</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-wine">Medium</span></td>
+          <td>[Priority activity]</td>
+          <td>[Owner]</td>
+          <td class="mono">[MM/DD]</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-neutral">Low</span></td>
+          <td>[Priority activity]</td>
+          <td>[Owner]</td>
+          <td class="mono">[MM/DD]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    Red Door Collaborative &middot; [Report Title] &middot; [Period]
+  </div>
+
+</div>
+
+<script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"></script>
+</body>
+</html>

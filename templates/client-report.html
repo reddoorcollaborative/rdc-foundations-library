@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Report Title] — [Client Name]</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css">
+<!--
+  ================================================================
+  PASSWORD PROTECTION — StatiCrypt
+  ================================================================
+  This template is designed to be protected with StatiCrypt before
+  distribution. After completing the page content:
+
+  1. Install StatiCrypt (one-time):
+       npm install -g staticrypt
+
+  2. Encrypt this file:
+       staticrypt client-report.html --password YOUR_PASSWORD \
+         --short --template-title "[Report Title]" \
+         --output client-report-protected.html
+
+  3. Distribute client-report-protected.html (not this source file).
+     Share the password via a separate, private channel.
+
+  StatiCrypt docs: https://github.com/robinmoisson/staticrypt
+  ================================================================
+-->
+</head>
+<body>
+
+<div class="wrap-narrow">
+
+  <!-- ============================================================
+       PAGE HEADER
+       Note: eyebrow uses client name, not "Red Door Collaborative"
+       — this page is client-facing.
+  ============================================================ -->
+  <div class="page-header">
+    <div class="eyebrow">[Client Name] &middot; [Report type]</div>
+    <h1 class="page-header-title">[Report Title]</h1>
+    <p class="page-header-desc">[One sentence describing what this report covers and its time period.]</p>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <span class="header-meta-label">Period</span>
+        <span class="header-meta-value">[Month YYYY – Month YYYY]</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Prepared by</span>
+        <span class="header-meta-value">Red Door Collaborative</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Prepared for</span>
+        <span class="header-meta-value">[Recipient name / team]</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">Issued</span>
+        <span class="header-meta-value">[Month DD, YYYY]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CONFIDENTIALITY NOTICE
+       Remove if not needed.
+  ============================================================ -->
+  <div class="alert-banner" style="margin-bottom:var(--space-8);">
+    <strong>Confidential:</strong> This report is prepared exclusively for [Client Name] and is not intended for external distribution.
+  </div>
+
+  <!-- ============================================================
+       HERO METRICS
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:var(--space-3);">Key metrics</div>
+  <div class="grid-4" style="margin-bottom:var(--space-8);">
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-delta">↑ [+X vs prior period]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-delta">↑ [+X vs prior period]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-sub">[Context note]</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">[Metric]</div>
+      <div class="metric-value">[Value]</div>
+      <div class="metric-sub">[Context note]</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       EXECUTIVE SUMMARY
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Overview</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Executive summary</h2>
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <p>[2–3 sentences summarizing the most important findings. Write for an executive reader — lead with the result, then support it.]</p>
+    <p>[What changed vs. prior period and why.]</p>
+  </div>
+
+  <!-- ============================================================
+       PERFORMANCE SECTION
+       Duplicate this block for each performance area.
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">[Category label]</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">[Performance area]</h2>
+
+  <div class="card" style="margin-bottom:var(--space-6);">
+    <table class="table-rdc">
+      <thead>
+        <tr>
+          <th>[Item]</th>
+          <th>[Metric A]</th>
+          <th>[Metric B]</th>
+          <th>vs. prior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-success">↑ +12%</span></td>
+        </tr>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-coral">↓ −4%</span></td>
+        </tr>
+        <tr>
+          <td>[Item name]</td>
+          <td class="mono">[Value]</td>
+          <td class="mono">[Value]</td>
+          <td><span class="badge badge-neutral">— 0%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <p style="font-size:14px;"><strong>Insight:</strong> [What the data above means for the client and what action, if any, it recommends.]</p>
+  </div>
+
+  <!-- ============================================================
+       FLAGS & NOTICES
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Flags</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Notices &amp; flags</h2>
+  <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-8);">
+    <div class="alert alert-success">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">[Positive result]</div>
+        [What drove it and why it matters.]
+      </div>
+    </div>
+    <div class="alert alert-warning">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">[Area needing attention]</div>
+        [What's happening and recommended action.]
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NEXT STEPS
+       Client-facing language: "recommended next steps" rather than
+       "next period priorities" (internal framing).
+  ============================================================ -->
+  <div class="eyebrow" style="margin-bottom:4px;">Forward look</div>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--gray-200);">Recommended next steps</h2>
+  <div class="card" style="margin-bottom:var(--space-8);">
+    <table class="table-rdc">
+      <thead>
+        <tr><th>Priority</th><th>Recommendation</th><th>Timing</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-coral">High</span></td>
+          <td>[Recommended action]</td>
+          <td class="mono">[Timeframe]</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-wine">Medium</span></td>
+          <td>[Recommended action]</td>
+          <td class="mono">[Timeframe]</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-neutral">Low</span></td>
+          <td>[Recommended action]</td>
+          <td class="mono">[Timeframe]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================================
+       CONTACT
+       Client-facing: provide a direct contact rather than a GitHub link.
+  ============================================================ -->
+  <div class="page-footer">
+    Prepared by Red Door Collaborative &middot; Questions? <a href="mailto:brian@reddoorcollaborative.com">brian@reddoorcollaborative.com</a>
+  </div>
+
+</div>
+
+<script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"></script>
+</body>
+</html>
