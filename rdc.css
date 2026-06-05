@@ -365,7 +365,7 @@ hr {
   margin-top: auto;
   padding-top: 2rem;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.50);
   letter-spacing: 0.05em;
 }
 
@@ -397,8 +397,7 @@ hr {
 
 .nav-link.active {
   color: var(--coral);
-  background: rgba(255, 79, 88, 0.12);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* ——— Page footer ——— */
@@ -437,7 +436,7 @@ hr {
 .btn:disabled, .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
 
 /* Filled variants */
-.btn-primary { background: var(--coral); color: #fff; }
+.btn-primary { background: var(--coral); color: var(--squid); }
 .btn-dark    { background: var(--squid); color: #fff; }
 .btn-wine    { background: var(--wine);  color: #fff; }
 
@@ -775,7 +774,7 @@ hr {
 .layout-toggle-label {
   font-size: 9px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--gray-300);
+  color: var(--gray-500);
   padding: 0 4px 0 2px;
   white-space: nowrap;
 }
@@ -869,7 +868,7 @@ body.size-editorial .page-header-title  { font-size: clamp(32px, 5vw, 50px); }
   html:not([data-theme="light"]) blockquote { background: rgba(255,79,88,0.06); }
   html:not([data-theme="light"]) .page-header { border: 1px solid rgba(255,255,255,0.05); }
   html:not([data-theme="light"]) .section-title    { color: rgba(255,255,255,0.90); }
-  html:not([data-theme="light"]) .section-desc     { color: rgba(255,255,255,0.42); }
+  html:not([data-theme="light"]) .section-desc     { color: rgba(255,255,255,0.50); }
   html:not([data-theme="light"]) .subsection-label { border-bottom-color: rgba(255,255,255,0.07); }
   html:not([data-theme="light"]) .sidebar { border-right: 1px solid rgba(255,255,255,0.05); }
   html:not([data-theme="light"]) .page-footer { border-top-color: rgba(255,255,255,0.07); }
@@ -939,7 +938,7 @@ html[data-theme="dark"] pre  { background: rgba(255,255,255,0.05); }
 html[data-theme="dark"] blockquote { background: rgba(255,79,88,0.06); }
 html[data-theme="dark"] .page-header { border: 1px solid rgba(255,255,255,0.05); }
 html[data-theme="dark"] .section-title    { color: rgba(255,255,255,0.90); }
-html[data-theme="dark"] .section-desc     { color: rgba(255,255,255,0.42); }
+html[data-theme="dark"] .section-desc     { color: rgba(255,255,255,0.50); }
 html[data-theme="dark"] .subsection-label { border-bottom-color: rgba(255,255,255,0.07); }
 html[data-theme="dark"] .sidebar { border-right: 1px solid rgba(255,255,255,0.05); }
 html[data-theme="dark"] .page-footer { border-top-color: rgba(255,255,255,0.07); }
