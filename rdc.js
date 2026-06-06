@@ -21,10 +21,29 @@
 (function () {
   'use strict';
 
-  // ── 0. Keyboard-accessible scrollable code blocks ────────────
+  // ── 0a. Keyboard-accessible scrollable code blocks ───────────
   document.querySelectorAll('pre').forEach(function (el) {
     el.setAttribute('tabindex', '0');
   });
+
+  // ── 0b. Dynamic timestamp in sidebar version footer ──────────
+  var versionEl = document.querySelector('.sidebar-version');
+  if (versionEl) {
+    try {
+      var now = new Date();
+      var fmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        month: 'numeric', day: 'numeric', year: '2-digit',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      var parts = {};
+      fmt.formatToParts(now).forEach(function (p) { parts[p.type] = p.value; });
+      var stamp = parts.month + '/' + parts.day + '/' + parts.year
+                + ' ' + parts.hour + ':' + parts.minute
+                + ' ' + parts.dayPeriod + ' PT';
+      versionEl.textContent = versionEl.textContent + ' · ' + stamp;
+    } catch (e) {}
+  }
 
   // ── 1. Apply saved size / align preferences ──────────────────
   var prefs = {};
