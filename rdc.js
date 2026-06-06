@@ -26,18 +26,20 @@
     el.setAttribute('tabindex', '0');
   });
 
-  // ── 0b. Dynamic timestamp in sidebar version footer ──────────
+  // ── 0b. Last-modified timestamp in sidebar version footer ────
+  // Uses document.lastModified — reflects the file's server-side
+  // modification time (updated on each deploy/commit), NOT page-load time.
   var versionEl = document.querySelector('.sidebar-version');
   if (versionEl) {
     try {
-      var now = new Date();
+      var modified = new Date(document.lastModified);
       var fmt = new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/Los_Angeles',
         month: 'numeric', day: 'numeric', year: '2-digit',
         hour: 'numeric', minute: '2-digit', hour12: true
       });
       var parts = {};
-      fmt.formatToParts(now).forEach(function (p) { parts[p.type] = p.value; });
+      fmt.formatToParts(modified).forEach(function (p) { parts[p.type] = p.value; });
       var stamp = parts.month + '/' + parts.day + '/' + parts.year
                 + ' ' + parts.hour + ':' + parts.minute
                 + ' ' + parts.dayPeriod + ' PT';

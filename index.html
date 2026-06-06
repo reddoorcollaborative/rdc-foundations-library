@@ -12,9 +12,6 @@
 </head>
 <body>
 
-<!-- ============================================================
-     SIDEBAR NAVIGATION
-============================================================ -->
 <nav class="sidebar">
   <a href="#" class="sidebar-logo">
     <div class="logo-mark">rd</div>
@@ -28,8 +25,11 @@
 
   <span class="nav-section-label">Brand</span>
   <a class="nav-link" href="#colors">Colors</a>
+  <a class="nav-link" href="#gradients">Gradients</a>
   <a class="nav-link" href="#typography">Typography</a>
-  <a class="nav-link" href="#spacing">Spacing & radius</a>
+  <a class="nav-link" href="#spacing">Spacing & layout</a>
+  <a class="nav-link" href="#logo">Logo & marks</a>
+  <a class="nav-link" href="#backgrounds">Backgrounds</a>
 
   <span class="nav-section-label">Components</span>
   <a class="nav-link" href="#buttons">Buttons</a>
@@ -37,18 +37,25 @@
   <a class="nav-link" href="#cards">Cards</a>
   <a class="nav-link" href="#alerts">Alerts</a>
   <a class="nav-link" href="#tables">Tables</a>
+  <a class="nav-link" href="#forms">Forms</a>
+
+  <span class="nav-section-label">Patterns</span>
+  <a class="nav-link" href="#page-header">Page header</a>
+  <a class="nav-link" href="#dark-mode">Dark mode</a>
+  <a class="nav-link" href="#layout-toggle">Layout toggle</a>
+
+  <span class="nav-section-label">Guidelines</span>
+  <a class="nav-link" href="#accessibility">Accessibility</a>
+  <a class="nav-link" href="#brand-rules">Brand rules</a>
+  <a class="nav-link" href="#naming">Naming</a>
 
   <span class="nav-section-label">Output</span>
   <a class="nav-link" href="#templates">Templates</a>
-  <a class="nav-link" href="#guidelines">Guidelines</a>
   <a class="nav-link" href="#multi-brand">Multi-brand</a>
 
   <div class="sidebar-version">v2.1</div>
 </nav>
 
-<!-- ============================================================
-     MAIN CONTENT
-============================================================ -->
 <main class="sidebar-content">
 <div class="sidebar-inner">
 
@@ -139,61 +146,253 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <!-- ── COLORS ──────────────────────────────────────────────── -->
   <div class="section" id="colors">
     <div class="section-eyebrow">Brand</div>
-    <h2 class="section-title">Colors</h2>
-    <p class="section-desc">Four brand colors plus a neutral scale. Use CSS tokens — never hardcoded hex in HTML.</p>
+    <h2 class="section-title">Color palette</h2>
+    <p class="section-desc">Six colors define the RDC brand. Coral leads all CTAs and accents. Squid grounds dark surfaces. Wine and Mist provide tonal range. All values sourced from the official brand guide v1.0.</p>
 
     <div class="subsection">
-      <div class="subsection-label">Brand palette</div>
-      <div class="grid-4" style="margin-bottom:var(--space-6);">
-        <div>
-          <div style="height:80px;background:#FF4F58;border-radius:var(--radius-md);margin-bottom:10px;"></div>
-          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Coral</div>
-          <div class="mono">#FF4F58 · --coral</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Primary CTA, links, eyebrows</div>
+      <div class="subsection-label">Primary palette</div>
+      <div class="grid-3" style="margin-bottom:var(--space-6);">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:88px;background:#FF4F58;"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">RDC Coral</div>
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);margin-bottom:8px;">#FF4F58</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:2px;">RGB 255 · 79 · 88</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 0 · 84 · 58 · 0</div>
+          </div>
         </div>
-        <div>
-          <div style="height:80px;background:#0D1724;border-radius:var(--radius-md);margin-bottom:10px;"></div>
-          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Squid</div>
-          <div class="mono">#0D1724 · --squid</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Dark bg, authority type</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:88px;background:#0D1724;"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Squid</div>
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);margin-bottom:8px;">#0D1724</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:2px;">RGB 13 · 23 · 36</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 87 · 75 · 56 · 71</div>
+          </div>
         </div>
-        <div>
-          <div style="height:80px;background:#7F0046;border-radius:var(--radius-md);margin-bottom:10px;"></div>
-          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Wine</div>
-          <div class="mono">#7F0046 · --wine</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Secondary accent</div>
-        </div>
-        <div>
-          <div style="height:80px;background:#ABDCE0;border-radius:var(--radius-md);margin-bottom:10px;border:1px solid var(--gray-200);"></div>
-          <div style="font-size:13px;font-weight:600;color:var(--gray-900);">Mist</div>
-          <div class="mono">#ABDCE0 · --mist</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:3px;">Soft accent only</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:88px;background:#7F0046;"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Wine</div>
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);margin-bottom:8px;">#7F0046</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:2px;">RGB 127 · 0 · 70</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 38 · 100 · 48 · 25</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">Surface + page</div>
-      <div class="grid-4">
-        <div>
-          <div style="height:48px;background:#F7F6F4;border-radius:var(--radius-md);margin-bottom:8px;border:1px solid var(--gray-200);"></div>
-          <div class="mono">#F7F6F4 · --page-bg</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Page background (auto)</div>
+      <div class="subsection-label">Secondary palette</div>
+      <div class="grid-4" style="margin-bottom:var(--space-6);">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:64px;background:#ABDCE0;"></div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Mist</div>
+            <div style="font-size:12px;font-weight:500;color:var(--gray-900);margin-bottom:6px;">#ABDCE0</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:1px;">RGB 171 · 220 · 224</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 36 · 0 · 13 · 0</div>
+          </div>
         </div>
-        <div>
-          <div style="height:48px;background:#F3F3F3;border-radius:var(--radius-md);margin-bottom:8px;border:1px solid var(--gray-200);"></div>
-          <div class="mono">#F3F3F3 · --gray-100</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Card backgrounds</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:64px;background:#F3F3F3;border-bottom:1px solid var(--gray-200);"></div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Gray</div>
+            <div style="font-size:12px;font-weight:500;color:var(--gray-900);margin-bottom:6px;">#F3F3F3</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:1px;">RGB 243 · 243 · 243</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 3 · 2 · 2 · 0</div>
+          </div>
         </div>
-        <div>
-          <div style="height:48px;background:#E8E8E8;border-radius:var(--radius-md);margin-bottom:8px;"></div>
-          <div class="mono">#E8E8E8 · --gray-200</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Borders, dividers</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:64px;background:#FFFFFF;border-bottom:1px solid var(--gray-200);"></div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">White</div>
+            <div style="font-size:12px;font-weight:500;color:var(--gray-900);margin-bottom:6px;">#FFFFFF</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:1px;">RGB 255 · 255 · 255</div>
+            <div style="font-size:11px;color:var(--gray-500);">CMYK 0 · 0 · 0 · 0</div>
+          </div>
         </div>
-        <div>
-          <div style="height:48px;background:#888888;border-radius:var(--radius-md);margin-bottom:8px;"></div>
-          <div class="mono">#888888 · --gray-500</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Muted text, labels</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:64px;background:linear-gradient(180deg,#7F0046 0%,#FF4F58 100%);"></div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Gradient</div>
+            <div style="font-size:12px;font-weight:500;color:var(--gray-900);margin-bottom:6px;">Wine → Coral</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:1px;">180° · decorative</div>
+            <div style="font-size:11px;color:var(--gray-500);">Never for text bg</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Color purpose</div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table class="table-rdc" style="margin:0;">
+          <thead>
+            <tr>
+              <th style="padding-left:20px;">Color</th>
+              <th>Primary use</th>
+              <th>Secondary use</th>
+              <th>Never use for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding-left:20px;"><span class="color-dot" style="background:#FF4F58;"></span><strong>Coral</strong></td>
+              <td>CTAs, links, accents, eyebrow labels</td>
+              <td>Icon fills, active states</td>
+              <td>Large background areas, body text</td>
+            </tr>
+            <tr>
+              <td style="padding-left:20px;"><span class="color-dot" style="background:#0D1724;"></span><strong>Squid</strong></td>
+              <td>Dark backgrounds, primary text</td>
+              <td>Secondary buttons, borders</td>
+              <td>Accent details where Coral applies</td>
+            </tr>
+            <tr>
+              <td style="padding-left:20px;"><span class="color-dot" style="background:#7F0046;"></span><strong>Wine</strong></td>
+              <td>Secondary accents, gradient start</td>
+              <td>Card top bars, icon fills</td>
+              <td>Body text (accessibility)</td>
+            </tr>
+            <tr>
+              <td style="padding-left:20px;"><span class="color-dot" style="background:#ABDCE0;"></span><strong>Mist</strong></td>
+              <td>Soft accent, badge backgrounds</td>
+              <td>Decorative dividers</td>
+              <td>Page backgrounds (accent only)</td>
+            </tr>
+            <tr>
+              <td style="padding-left:20px;"><span class="color-dot" style="background:#F3F3F3;"></span><strong>Gray</strong></td>
+              <td>Light page backgrounds, metric cards</td>
+              <td>Table zebra rows</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Approved color pairings</div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <div style="flex:1;display:flex;height:36px;border-radius:var(--radius-md);overflow:hidden;min-width:0;">
+            <div style="width:60%;background:#0D1724;"></div>
+            <div style="width:20%;background:#7F0046;"></div>
+            <div style="width:20%;background:#FF4F58;"></div>
+          </div>
+          <div style="width:180px;flex-shrink:0;">
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);">Squid-anchored dark</div>
+            <div style="font-size:11px;color:var(--gray-500);">Squid · Wine · Coral</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <div style="flex:1;display:flex;height:36px;border-radius:var(--radius-md);overflow:hidden;min-width:0;">
+            <div style="width:25%;background:#FF4F58;"></div>
+            <div style="width:75%;background:#0D1724;"></div>
+          </div>
+          <div style="width:180px;flex-shrink:0;">
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);">Coral on Squid</div>
+            <div style="font-size:11px;color:var(--gray-500);">Coral · Squid</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <div style="flex:1;display:flex;height:36px;border-radius:var(--radius-md);overflow:hidden;min-width:0;border:1px solid var(--gray-200);">
+            <div style="width:55%;background:#F3F3F3;"></div>
+            <div style="width:25%;background:#7F0046;"></div>
+            <div style="width:20%;background:#FF4F58;"></div>
+          </div>
+          <div style="width:180px;flex-shrink:0;">
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);">Light with accent</div>
+            <div style="font-size:11px;color:var(--gray-500);">Gray · Wine · Coral</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <div style="flex:1;display:flex;height:36px;border-radius:var(--radius-md);overflow:hidden;min-width:0;">
+            <div style="width:35%;background:linear-gradient(90deg,#7F0046,#FF4F58);"></div>
+            <div style="width:65%;background:#FFFFFF;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);border-right:1px solid var(--gray-200);"></div>
+          </div>
+          <div style="width:180px;flex-shrink:0;">
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);">Gradient + White</div>
+            <div style="font-size:11px;color:var(--gray-500);">Wine→Coral gradient · White</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <div style="flex:1;display:flex;height:36px;border-radius:var(--radius-md);overflow:hidden;min-width:0;">
+            <div style="width:45%;background:#7F0046;"></div>
+            <div style="width:55%;background:#ABDCE0;"></div>
+          </div>
+          <div style="width:180px;flex-shrink:0;">
+            <div style="font-size:13px;font-weight:500;color:var(--gray-900);">Wine + Mist contrast</div>
+            <div style="font-size:11px;color:var(--gray-500);">Wine · Mist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">CSS tokens</div>
+      <pre style="margin:0;font-size:12px;">/* Available via rdc.css — reference anywhere in your HTML */
+--coral:    #FF4F58;  /* Primary CTA + accent */
+--squid:    #0D1724;  /* Dark surfaces */
+--wine:     #7F0046;  /* Secondary accent */
+--mist:     #ABDCE0;  /* Soft accent */
+--white:    #FFFFFF;
+--gray-50:  #FAFAFA;
+--gray-100: #F3F3F3;
+--gray-200: #E8E8E8;
+--gray-300: #D0D0D0;
+--gray-500: #696969;  /* Accessible muted text */
+--gray-700: #444444;
+--gray-900: #1A1A1A;
+--page-bg:  #F7F6F4;  /* Body warm off-white */
+--surface-dark: #18253A;  /* Sidebar + hero headers */</pre>
+    </div>
+  </div>
+
+
+  <!-- ── GRADIENTS ───────────────────────────────────────────── -->
+  <div class="section" id="gradients">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Gradients</h2>
+    <p class="section-desc">One approved gradient — Wine to Coral. Use only for decorative backgrounds, hero blocks, and accent shapes. Never apply to text or icon fills.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Standard gradient</div>
+      <div class="grid-2" style="margin-bottom:var(--space-6);">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:96px;background:linear-gradient(135deg,#7F0046 0%,#FF4F58 100%);"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Diagonal (135°)</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:2px;font-family:var(--font-mono);">linear-gradient(135deg, #7F0046, #FF4F58)</div>
+            <div style="font-size:11px;color:var(--gray-500);">Backgrounds, hero blocks, cards</div>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="height:96px;background:linear-gradient(180deg,#7F0046 0%,#FF4F58 100%);"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Vertical (180°)</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-bottom:2px;font-family:var(--font-mono);">linear-gradient(180deg, #7F0046, #FF4F58)</div>
+            <div style="font-size:11px;color:var(--gray-500);">Reference swatch, vertical fills</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Usage rules</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Use the gradient as a decorative background on hero sections and accent shapes.</p>
+          <p style="margin-top:8px;">Overlay white or light text on the gradient — white achieves 3.2:1 minimum on the Coral end (sufficient for large/bold text).</p>
+          <p style="margin-top:8px;">Keep gradient use limited to 1–2 surfaces per layout.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Use the gradient for body text backgrounds — contrast is insufficient for paragraph copy.</p>
+          <p style="margin-top:8px;">Apply the gradient to icon fills or UI component fills.</p>
+          <p style="margin-top:8px;">Introduce non-brand colors into the gradient stop.</p>
         </div>
       </div>
     </div>
@@ -204,36 +403,75 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <div class="section" id="typography">
     <div class="section-eyebrow">Brand</div>
     <h2 class="section-title">Typography</h2>
-    <p class="section-desc">DM Sans for all HTML deliverables — the approved substitute for licensed Suisse Int'l.</p>
+    <p class="section-desc">DM Sans for all HTML deliverables — the approved Google Fonts substitute for licensed Suisse Int'l. DM Mono for code, paths, and data values.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Typeface hierarchy</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead><tr><th>Role</th><th>Typeface</th><th>Source</th><th>When to use</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Primary</strong></td><td>Suisse Int'l</td><td>Swiss Typefaces (licensed)</td><td>All print and licensed digital platforms</td></tr>
+          <tr><td><strong>Secondary</strong></td><td>Proxima Nova</td><td>Adobe Fonts</td><td>Digital when Suisse is unavailable</td></tr>
+          <tr><td><strong>HTML substitute</strong></td><td>DM Sans</td><td>Google Fonts (free)</td><td>All HTML deliverables via Claude or CDN</td></tr>
+          <tr><td><strong>Monospace</strong></td><td>DM Mono</td><td>Google Fonts (free)</td><td>Code blocks, file paths, data values</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="subsection">
       <div class="subsection-label">Type scale</div>
       <div style="display:flex;flex-direction:column;gap:var(--space-4);">
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h1</span>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">H1 · 700</span>
           <h1 style="margin:0;line-height:1;">Heading one</h1>
         </div>
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h2</span>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">H2 · 600</span>
           <h2 style="margin:0;line-height:1;">Heading two</h2>
         </div>
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">h3</span>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">H3 · 600</span>
           <h3 style="margin:0;">Heading three</h3>
         </div>
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">body</span>
-          <p style="margin:0;">Body text at 15px / 1.7 line-height. Human-first, direct, never jargon-heavy. Red Door writes like it speaks.</p>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">H4 · 600</span>
+          <h4 style="margin:0;">Heading four</h4>
         </div>
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">eyebrow</span>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">Body · 400</span>
+          <p style="margin:0;">Body text at 15px / 1.7 line-height. Human-first, direct, never jargon-heavy.</p>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">Eyebrow</span>
           <span class="eyebrow">Eyebrow label</span>
         </div>
         <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
-          <span style="min-width:80px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">code</span>
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">Code</span>
           <code>inline code example</code>
         </div>
+        <div style="display:flex;align-items:baseline;gap:var(--space-8);padding:var(--space-4) 0;border-bottom:1px solid var(--gray-200);">
+          <span style="min-width:100px;font-size:11px;font-weight:600;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase;">Muted</span>
+          <span class="text-muted" style="font-size:13px;">Muted / secondary text at 13px</span>
+        </div>
       </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Token reference</div>
+      <table class="table-rdc">
+        <thead><tr><th>Role</th><th>Size</th><th>Weight</th><th>Letter-spacing</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>H1</td><td>clamp(28–42px)</td><td>700</td><td>-0.02em</td><td>Line-height 1.15</td></tr>
+          <tr><td>H2</td><td>clamp(22–32px)</td><td>600</td><td>-0.02em</td><td>Line-height 1.15</td></tr>
+          <tr><td>H3</td><td>20px</td><td>600</td><td>-0.01em</td><td>—</td></tr>
+          <tr><td>H4</td><td>16px</td><td>600</td><td>-0.01em</td><td>—</td></tr>
+          <tr><td>H5</td><td>14px</td><td>600</td><td>0</td><td>—</td></tr>
+          <tr><td>H6</td><td>11px</td><td>600</td><td>0.1em</td><td>Uppercase, gray-500</td></tr>
+          <tr><td>Body</td><td>15px</td><td>400</td><td>—</td><td>Line-height 1.7</td></tr>
+          <tr><td>Eyebrow</td><td>10px</td><td>600</td><td>0.14em</td><td>Uppercase, #C8002A on light</td></tr>
+          <tr><td>Mono</td><td>11px</td><td>400/500</td><td>—</td><td>DM Mono, gray-500</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="subsection">
@@ -242,48 +480,240 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
         <div class="do-box">
           <div class="do-label">Do</div>
           <p>Sentence case for all headings: "Content style guidelines"</p>
-          <p style="margin-top:8px;">Max 3 font weights per page.</p>
-          <p style="margin-top:8px;">DM Sans at weight 300–700 from Google Fonts.</p>
+          <p style="margin-top:8px;">Max 3 font weights per page or spread.</p>
+          <p style="margin-top:8px;">Build hierarchy through weight variation, not size alone.</p>
+          <p style="margin-top:8px;">Use DM Sans at weight 300–700 from Google Fonts.</p>
         </div>
         <div class="dont-box">
           <div class="dont-label">Don't</div>
-          <p>Title case: "Content Style Guidelines"</p>
+          <p>Title Case: "Content Style Guidelines"</p>
           <p style="margin-top:8px;">Mix Suisse Int'l and DM Sans in the same HTML file.</p>
-          <p style="margin-top:8px;">Override heading letter-spacing — it's calibrated.</p>
+          <p style="margin-top:8px;">Override heading letter-spacing — it is calibrated per level.</p>
+          <p style="margin-top:8px;">Italicize headings as an emphasis device.</p>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- ── SPACING ─────────────────────────────────────────────── -->
+  <!-- ── SPACING & LAYOUT ────────────────────────────────────── -->
   <div class="section" id="spacing">
     <div class="section-eyebrow">Brand</div>
-    <h2 class="section-title">Spacing & border radius</h2>
-    <p class="section-desc">8pt base grid with 4px increments. Use CSS tokens — never magic numbers.</p>
+    <h2 class="section-title">Spacing & layout</h2>
+    <p class="section-desc">8pt base grid with 4px increments. Use CSS tokens — never magic numbers inline.</p>
 
     <div class="subsection">
       <div class="subsection-label">Spacing tokens</div>
-      <table class="table-rdc">
-        <thead><tr><th>Token</th><th>Value</th><th>Common use</th></tr></thead>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead><tr><th>Token</th><th>Value</th><th>Visual</th><th>Common use</th></tr></thead>
         <tbody>
-          <tr><td><code>--space-2</code></td><td>8px</td><td>Tight gaps, inline spacing</td></tr>
-          <tr><td><code>--space-4</code></td><td>16px</td><td>Component padding, form fields</td></tr>
-          <tr><td><code>--space-6</code></td><td>24px</td><td>Card padding, section gaps</td></tr>
-          <tr><td><code>--space-8</code></td><td>32px</td><td>Section separation</td></tr>
-          <tr><td><code>--space-12</code></td><td>48px</td><td>Major section breaks</td></tr>
-          <tr><td><code>--space-16</code></td><td>64px</td><td>Page-level breathing room</td></tr>
+          <tr><td><code>--space-1</code></td><td>4px</td><td><div style="height:8px;width:4px;background:var(--coral);border-radius:2px;"></div></td><td>Icon gaps, tight inline spacing</td></tr>
+          <tr><td><code>--space-2</code></td><td>8px</td><td><div style="height:8px;width:8px;background:var(--coral);border-radius:2px;"></div></td><td>Label-to-input, badge padding</td></tr>
+          <tr><td><code>--space-3</code></td><td>12px</td><td><div style="height:8px;width:12px;background:var(--coral);border-radius:2px;"></div></td><td>Grid gutters, sibling gaps</td></tr>
+          <tr><td><code>--space-4</code></td><td>16px</td><td><div style="height:8px;width:16px;background:var(--coral);border-radius:2px;"></div></td><td>Card padding, form fields</td></tr>
+          <tr><td><code>--space-6</code></td><td>24px</td><td><div style="height:8px;width:24px;background:var(--coral);border-radius:2px;"></div></td><td>Section dividers, wider gutters</td></tr>
+          <tr><td><code>--space-8</code></td><td>32px</td><td><div style="height:8px;width:32px;background:var(--coral);border-radius:2px;"></div></td><td>Section separation</td></tr>
+          <tr><td><code>--space-12</code></td><td>48px</td><td><div style="height:8px;width:48px;background:var(--coral);border-radius:2px;"></div></td><td>Major section breaks</td></tr>
+          <tr><td><code>--space-16</code></td><td>64px</td><td><div style="height:8px;width:64px;background:var(--coral);border-radius:2px;"></div></td><td>Page-level breathing room</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="subsection">
+      <div class="subsection-label">Layout grid</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead><tr><th>Breakpoint</th><th>Width</th><th>Columns</th><th>Gutter</th><th>Margin</th></tr></thead>
+        <tbody>
+          <tr><td>Mobile</td><td>&lt;768px</td><td>4</td><td>16px</td><td>16px</td></tr>
+          <tr><td>Tablet</td><td>768–1024px</td><td>8</td><td>24px</td><td>32px</td></tr>
+          <tr><td>Desktop</td><td>1024–1440px</td><td>12</td><td>32px</td><td>64px</td></tr>
+          <tr><td>Wide</td><td>&gt;1440px</td><td>12</td><td>32px</td><td>auto</td></tr>
+        </tbody>
+      </table>
+      <p class="text-muted text-sm">Max content width: <code>--page-max: 1280px</code>. Narrow reading column: <code>--content-max: 860px</code>.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Grid utility classes</div>
+      <div class="grid-4" style="margin-bottom:var(--space-4);">
+        <div style="background:var(--coral);height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:600;color:var(--squid);">.grid-2</span></div>
+        <div style="background:var(--coral);height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:600;color:var(--squid);">.grid-3</span></div>
+        <div style="background:var(--coral);height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:600;color:var(--squid);">.grid-4</span></div>
+        <div style="background:var(--coral);height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:600;color:var(--squid);">.grid-auto</span></div>
+      </div>
+      <p class="text-muted text-sm">All grids use <code>gap: var(--space-3)</code>. <code>.grid-auto</code> auto-fits columns at <code>minmax(280px, 1fr)</code> — ideal for card grids of unknown count.</p>
+    </div>
+
+    <div class="subsection">
       <div class="subsection-label">Border radius tokens</div>
       <div class="grid-4" style="gap:var(--space-4);">
-        <div style="background:var(--coral);height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:var(--squid);">sm · 4px</span></div>
-        <div style="background:var(--coral);height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:var(--squid);">md · 8px</span></div>
-        <div style="background:var(--coral);height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:var(--squid);">lg · 12px</span></div>
-        <div style="background:var(--coral);height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:var(--squid);">pill · 999px</span></div>
+        <div style="background:var(--squid);height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">sm · 4px</span></div>
+        <div style="background:var(--squid);height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">md · 8px</span></div>
+        <div style="background:var(--squid);height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">lg · 12px</span></div>
+        <div style="background:var(--squid);height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">pill · 999px</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Shadow tokens</div>
+      <div class="grid-3" style="gap:var(--space-4);">
+        <div class="card" style="box-shadow:var(--shadow-sm);">
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow SM</div>
+          <div class="mono">0 1px 3px rgba(13,23,36,0.08)</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Subtle hover lift</div>
+        </div>
+        <div class="card" style="box-shadow:var(--shadow-md);">
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow MD</div>
+          <div class="mono">0 4px 12px rgba(13,23,36,0.10)</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Card hover, dropdowns</div>
+        </div>
+        <div class="card" style="box-shadow:var(--shadow-lg);">
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow LG</div>
+          <div class="mono">0 8px 24px rgba(13,23,36,0.12)</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Modals, popovers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── LOGO & MARKS ───────────────────────────────────────── -->
+  <div class="section" id="logo">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Logo & marks</h2>
+    <p class="section-desc">The RDC mark is a circle with the "rd" letterform inside. Use only approved variants from Box. Never recreate, recolor, or apply effects.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Mark variants</div>
+      <div class="grid-4" style="margin-bottom:var(--space-6);">
+        <div class="card" style="text-align:center;padding:var(--space-6) var(--space-4);">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--wine);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-3);font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.02em;">rd</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);">Primary</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Wine bg · White text</div>
+        </div>
+        <div class="card" style="text-align:center;padding:var(--space-6) var(--space-4);">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--squid);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-3);font-size:20px;font-weight:700;color:var(--coral);letter-spacing:-0.02em;">rd</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);">Squid</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Squid bg · Coral text</div>
+        </div>
+        <div class="card" style="text-align:center;padding:var(--space-6) var(--space-4);">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-3);font-size:20px;font-weight:700;color:var(--squid);letter-spacing:-0.02em;">rd</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);">Coral</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Coral bg · Squid text</div>
+        </div>
+        <div class="card" style="text-align:center;padding:var(--space-6) var(--space-4);">
+          <div style="width:56px;height:56px;border-radius:50%;border:2px solid var(--coral);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-3);font-size:20px;font-weight:700;color:var(--coral);letter-spacing:-0.02em;">rd</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);">Outline</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Transparent · Coral border</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Minimum sizes & clear space</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-4);">
+        <thead><tr><th>Format</th><th>Minimum width</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Full lockup (digital)</td><td>85px</td><td>Per brand guide v1.0</td></tr>
+          <tr><td>Full lockup (print)</td><td>0.25 in</td><td>Per brand guide v1.0</td></tr>
+          <tr><td>Mark only (digital)</td><td>24px</td><td>Favicons, avatars, app icons</td></tr>
+        </tbody>
+      </table>
+      <p class="text-muted text-sm">Clear space rule: the logo fits within a bounding square. Use that square's dimensions as minimum clearance on all four sides. No other elements should enter this zone.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Misuse — never do the following</div>
+      <div class="grid-3">
+        <div class="dont-box">
+          <div class="dont-label">Don't stretch</div>
+          <p>Distorts proportions — use only approved aspect ratios.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't rotate</div>
+          <p>The mark must remain upright at all times.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't add effects</div>
+          <p>No drop shadows, glows, gradients, or outlines on the mark.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't recolor</div>
+          <p>Use only the four approved mark color variants above.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't recreate</div>
+          <p>Always use the approved SVG/PNG files from Box.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't go below min</div>
+          <p>Never display the full lockup below 85px digital width.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Asset location</div>
+      <div class="alert-banner">
+        <strong>Box:</strong> Red Door File Database → Red Door Guidelines and Assets → RDC 2025 Branding. Approved SVG, PNG, and EPS files are maintained there. Never source assets from anywhere else.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── BACKGROUNDS ────────────────────────────────────────── -->
+  <div class="section" id="backgrounds">
+    <div class="section-eyebrow">Brand</div>
+    <h2 class="section-title">Backgrounds</h2>
+    <p class="section-desc">Four approved background treatments. Never use Mist or Coral as full-page backgrounds — they are accent surfaces only.</p>
+
+    <div class="grid-4" style="margin-bottom:var(--space-6);">
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="height:72px;background:linear-gradient(135deg,#7F0046,#FF4F58);"></div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Gradient</div>
+          <div style="font-size:11px;color:var(--gray-500);">Wine → Coral, 135°</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Hero blocks, decorative</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="height:72px;background:#F3F3F3;border-bottom:1px solid var(--gray-200);"></div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Gray</div>
+          <div style="font-size:11px;color:var(--gray-500);">#F3F3F3</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Primary light bg</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="height:72px;background:#0D1724;"></div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Squid</div>
+          <div style="font-size:11px;color:var(--gray-500);">#0D1724</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Dark / authority surfaces</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="height:72px;background:#7F0046;"></div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:2px;">Wine</div>
+          <div style="font-size:11px;color:var(--gray-500);">#7F0046</div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">Bold accent backgrounds</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-label">Approved combinations</div>
+        <p>White or light text on Squid or Wine backgrounds.</p>
+        <p style="margin-top:8px;">Squid text on Gray, White, or page-bg surfaces.</p>
+        <p style="margin-top:8px;">Mist as a badge or accent tint, not a full page surface.</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-label">Never do this</div>
+        <p>Coral as a full-page background — insufficient contrast for body text.</p>
+        <p style="margin-top:8px;">Mist as a page background — accent color only.</p>
+        <p style="margin-top:8px;">Gradient behind body copy — contrast fails for small text.</p>
       </div>
     </div>
   </div>
@@ -293,27 +723,76 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <div class="section" id="buttons">
     <div class="section-eyebrow">Components</div>
     <h2 class="section-title">Buttons</h2>
-    <p class="section-desc">All buttons use pill border-radius via <code>.btn</code>. Coral is always the primary action.</p>
+    <p class="section-desc">All buttons use pill border-radius via <code>.btn</code>. Coral is always the primary action. Never use more than two button styles in a single view.</p>
 
     <div class="subsection">
-      <div class="subsection-label">Filled</div>
-      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-6);">
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-dark">Dark</button>
-        <button class="btn btn-wine">Wine</button>
+      <div class="subsection-label">Filled variants</div>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-4);">
+        <button class="btn btn-primary">Primary action</button>
+        <button class="btn btn-dark">Dark button</button>
+        <button class="btn btn-wine">Wine button</button>
       </div>
+      <table class="table-rdc">
+        <thead><tr><th>Class</th><th>Background</th><th>Text</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><code>.btn-primary</code></td><td>Coral #FF4F58</td><td>Squid #0D1724</td><td>Primary CTA on every page</td></tr>
+          <tr><td><code>.btn-dark</code></td><td>Squid #0D1724</td><td>White</td><td>Secondary on light backgrounds</td></tr>
+          <tr><td><code>.btn-wine</code></td><td>Wine #7F0046</td><td>White</td><td>Accent action on neutral surfaces</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
       <div class="subsection-label">Outlined & ghost</div>
-      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-6);">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-4);">
         <button class="btn btn-outline-coral">Outline coral</button>
         <button class="btn btn-outline-dark">Outline dark</button>
         <button class="btn btn-ghost">Ghost</button>
       </div>
-      <div class="subsection-label">Sizes</div>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);">
+      <table class="table-rdc">
+        <thead><tr><th>Class</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><code>.btn-outline-coral</code></td><td>Secondary CTA where filled Coral would compete with another primary action</td></tr>
+          <tr><td><code>.btn-outline-dark</code></td><td>Tertiary action on light surfaces; adapts in dark mode</td></tr>
+          <tr><td><code>.btn-ghost</code></td><td>Destructive or dismissive actions (cancel, close) — low visual weight</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Sizes & states</div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
         <button class="btn btn-primary btn-sm">Small</button>
         <button class="btn btn-primary">Default</button>
         <button class="btn btn-primary btn-lg">Large</button>
         <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+      <table class="table-rdc">
+        <thead><tr><th>Modifier</th><th>Font</th><th>Padding</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><code>.btn-sm</code></td><td>11px</td><td>6px 14px</td><td>Tight UI, table actions</td></tr>
+          <tr><td><code>.btn</code> (default)</td><td>13px</td><td>9px 22px</td><td>Standard CTAs</td></tr>
+          <tr><td><code>.btn-lg</code></td><td>15px</td><td>12px 30px</td><td>Hero sections, marketing</td></tr>
+          <tr><td><code>disabled</code></td><td colspan="2">opacity: 0.45; cursor: not-allowed</td><td>Always use HTML disabled attr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Usage rules</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Use <code>.btn-primary</code> for the single most important action on a page.</p>
+          <p style="margin-top:8px;">Pair a primary button with a ghost or outline for secondary actions.</p>
+          <p style="margin-top:8px;">Include descriptive label text — avoid "Click here" or "Submit."</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Use more than one <code>.btn-primary</code> in a single viewport.</p>
+          <p style="margin-top:8px;">Override the pill border-radius — it is a core brand identifier.</p>
+          <p style="margin-top:8px;">Use icon-only buttons without an <code>aria-label</code>.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -322,17 +801,43 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <!-- ── BADGES ──────────────────────────────────────────────── -->
   <div class="section" id="badges">
     <div class="section-eyebrow">Components</div>
-    <h2 class="section-title">Badges</h2>
-    <p class="section-desc">Inline status indicators and category labels.</p>
+    <h2 class="section-title">Badges & tags</h2>
+    <p class="section-desc">Inline labels for categories, statuses, clients, and services. Always pill-shaped. Always tinted backgrounds — never solid fills.</p>
 
-    <div class="tag-row">
-      <span class="badge badge-coral">Coral</span>
-      <span class="badge badge-squid">Squid</span>
-      <span class="badge badge-wine">Wine</span>
-      <span class="badge badge-mist">Mist</span>
-      <span class="badge badge-success">Success</span>
-      <span class="badge badge-warning">Warning</span>
-      <span class="badge badge-neutral">Neutral</span>
+    <div class="subsection">
+      <div class="subsection-label">All variants</div>
+      <div class="tag-row" style="margin-bottom:var(--space-6);">
+        <span class="badge badge-coral">Brand strategy</span>
+        <span class="badge badge-squid">Microsoft</span>
+        <span class="badge badge-wine">In progress</span>
+        <span class="badge badge-mist">Content design</span>
+        <span class="badge badge-success">Delivered</span>
+        <span class="badge badge-warning">Review needed</span>
+        <span class="badge badge-neutral">Archived</span>
+      </div>
+      <table class="table-rdc">
+        <thead><tr><th>Class</th><th>Background</th><th>Text color</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><td><code>.badge-coral</code></td><td>rgba(coral, 12%)</td><td>#C13040</td><td>RDC brand items, primary services</td></tr>
+          <tr><td><code>.badge-squid</code></td><td>rgba(squid, 8%)</td><td>Squid</td><td>Client names, companies</td></tr>
+          <tr><td><code>.badge-wine</code></td><td>rgba(wine, 12%)</td><td>Wine</td><td>Status, categories</td></tr>
+          <tr><td><code>.badge-mist</code></td><td>rgba(mist, 35%)</td><td>#226268</td><td>Content, editorial labels</td></tr>
+          <tr><td><code>.badge-success</code></td><td>#dcfce7</td><td>#15803d</td><td>Delivered, complete, active</td></tr>
+          <tr><td><code>.badge-warning</code></td><td>#fef9c3</td><td>#a16207</td><td>Needs review, in progress</td></tr>
+          <tr><td><code>.badge-neutral</code></td><td>gray-100</td><td>gray-700</td><td>Archived, inactive, default</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Tag rows</div>
+      <p class="text-muted text-sm" style="margin-bottom:var(--space-3);">Wrap multiple badges in <code>.tag-row</code> for automatic flex + gap layout.</p>
+      <div class="tag-row">
+        <span class="badge badge-squid">Microsoft</span>
+        <span class="badge badge-coral">Brand strategy</span>
+        <span class="badge badge-success">Delivered</span>
+        <span class="badge badge-neutral">FY26</span>
+      </div>
     </div>
   </div>
 
@@ -341,11 +846,11 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <div class="section" id="cards">
     <div class="section-eyebrow">Components</div>
     <h2 class="section-title">Cards</h2>
-    <p class="section-desc">Three card types for navigational, editorial, and metric use cases.</p>
+    <p class="section-desc">Three card types for navigational, editorial, and metric use cases. The colored 4px top bar signals category or brand relationship.</p>
 
     <div class="subsection">
-      <div class="subsection-label">Doc card — navigational link</div>
-      <div class="grid-3">
+      <div class="subsection-label">Doc card — navigational links</div>
+      <div class="grid-3" style="margin-bottom:var(--space-4);">
         <a href="#" class="doc-card">
           <div class="doc-card-bar"></div>
           <div class="doc-card-body">
@@ -369,16 +874,17 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
           <div class="doc-card-body">
             <div class="eyebrow">Client · Active</div>
             <h3>Azure brand library</h3>
-            <p>Microsoft Azure visual brand reference for RDC team members.</p>
+            <p>Microsoft Azure visual brand reference for RDC team.</p>
             <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
           </div>
         </a>
       </div>
+      <p class="text-muted text-sm">Bar color signals type: Coral = RDC brand, Squid = internal, Wine = client. Use <code>doc-card-open</code> modifier on lock indicator for open-access docs.</p>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">Metric card — dashboards</div>
-      <div class="grid-4">
+      <div class="subsection-label">Metric card — dashboards & KPIs</div>
+      <div class="grid-4" style="margin-bottom:var(--space-4);">
         <div class="metric-card">
           <div class="metric-label">Active projects</div>
           <div class="metric-value">24</div>
@@ -400,6 +906,43 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
           <div class="metric-sub">FY26 average</div>
         </div>
       </div>
+      <p class="text-muted text-sm">Use <code>.metric-delta</code> for positive change (green). Use <code>.metric-sub</code> for neutral context. Keep values to 2–3 characters — they're designed to display large.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Base card — general use</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="subsection-label">Base card</div>
+          <p>White background, gray-200 border, 12px radius. Use for code blocks, data panels, and any contained content that needs visual separation.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-bar" style="background:var(--coral);height:4px;"></div>
+          <div class="content-card-body">
+            <div class="content-card-eyebrow">Editorial</div>
+            <div class="content-card-title">Content card title</div>
+            <div class="content-card-copy">For editorial content with an eyebrow, title, body, and optional CTA.</div>
+            <button class="btn btn-primary btn-sm">Learn more</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="subsection-label">Card CSS tokens</div>
+          <pre style="margin:0;font-size:11px;">.card
+  bg: white
+  border: 1px solid gray-200
+  radius: 12px (--radius-lg)
+  padding: 1.25rem 1.5rem
+
+.doc-card
+  hover: translateY(-2px)
+         shadow-md
+  bar: 4px top accent
+
+.metric-card
+  bg: gray-100
+  radius: 8px (--radius-md)</pre>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -407,29 +950,51 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <!-- ── ALERTS ──────────────────────────────────────────────── -->
   <div class="section" id="alerts">
     <div class="section-eyebrow">Components</div>
-    <h2 class="section-title">Alerts</h2>
-    <p class="section-desc">Inline status messages and page-level banners.</p>
+    <h2 class="section-title">Alerts & banners</h2>
+    <p class="section-desc">Four semantic alert levels plus a page-level banner. Always use tinted backgrounds with a colored dot — never solid fills.</p>
 
-    <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-6);">
-      <div class="alert alert-coral">
-        <div class="alert-dot"></div>
-        <div class="alert-body"><div class="alert-title">Brand alert</div>Use Coral for brand-specific notices and warnings.</div>
-      </div>
-      <div class="alert alert-info">
-        <div class="alert-dot"></div>
-        <div class="alert-body"><div class="alert-title">Info</div>Informational notice for general context or guidance.</div>
-      </div>
-      <div class="alert alert-success">
-        <div class="alert-dot"></div>
-        <div class="alert-body"><div class="alert-title">Success</div>Confirmation that an action completed successfully.</div>
-      </div>
-      <div class="alert alert-warning">
-        <div class="alert-dot"></div>
-        <div class="alert-body"><div class="alert-title">Warning</div>Something needs attention before proceeding.</div>
+    <div class="subsection">
+      <div class="subsection-label">Inline alerts</div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-6);">
+        <div class="alert alert-coral">
+          <div class="alert-dot"></div>
+          <div class="alert-body"><div class="alert-title">Brand alert</div>Use for RDC brand-specific notices and critical warnings.</div>
+        </div>
+        <div class="alert alert-info">
+          <div class="alert-dot"></div>
+          <div class="alert-body"><div class="alert-title">Info</div>Informational notice for general context or guidance.</div>
+        </div>
+        <div class="alert alert-success">
+          <div class="alert-dot"></div>
+          <div class="alert-body"><div class="alert-title">Success</div>Confirmation that an action completed or a milestone was reached.</div>
+        </div>
+        <div class="alert alert-warning">
+          <div class="alert-dot"></div>
+          <div class="alert-body"><div class="alert-title">Warning</div>Something requires attention before proceeding.</div>
+        </div>
       </div>
     </div>
-    <div class="alert-banner">
-      <strong>Banner alert:</strong> Full-width accent strip for page-level notices. Use sparingly.
+
+    <div class="subsection">
+      <div class="subsection-label">Banner variant</div>
+      <div class="alert-banner" style="margin-bottom:var(--space-4);">
+        <strong>Banner alert:</strong> Full-width left-border accent strip for page-level notices. Use sparingly — maximum one per page.
+      </div>
+      <p class="text-muted text-sm">The banner uses a 3px left border instead of a dot, making it visually heavier. Reserve for access restrictions, version notices, or page-wide status messages.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">When to use each level</div>
+      <table class="table-rdc">
+        <thead><tr><th>Level</th><th>Color</th><th>Use when</th></tr></thead>
+        <tbody>
+          <tr><td>Coral</td><td>Coral dot on tinted bg</td><td>Brand-specific warnings, locked content, approval required</td></tr>
+          <tr><td>Info</td><td>Blue dot on tinted bg</td><td>Guidance, tips, additional context that isn't urgent</td></tr>
+          <tr><td>Success</td><td>Green dot on tinted bg</td><td>Confirmation of completion, deliverable status, positive status</td></tr>
+          <tr><td>Warning</td><td>Yellow dot on tinted bg</td><td>Action needed, review pending, deadline approaching</td></tr>
+          <tr><td>Banner</td><td>Coral left border</td><td>Page-level access notes, version warnings, one-time notices</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -438,44 +1003,483 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
   <div class="section" id="tables">
     <div class="section-eyebrow">Components</div>
     <h2 class="section-title">Tables</h2>
-    <p class="section-desc">Use <code>.table-rdc</code> for all data tables. Add <code>.striped</code> for alternating rows.</p>
+    <p class="section-desc">Use <code>.table-rdc</code> for all data tables. Headers are uppercase 10px labels. Mono font for hex codes, paths, and data values.</p>
 
-    <table class="table-rdc">
-      <thead>
-        <tr>
-          <th>Component</th>
-          <th>Class</th>
-          <th>Use</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Button</td>
-          <td><code>.btn</code></td>
-          <td>All interactive actions</td>
-          <td><span class="badge badge-success">Stable</span></td>
-        </tr>
-        <tr>
-          <td>Doc card</td>
-          <td><code>.doc-card</code></td>
-          <td>Navigation links</td>
-          <td><span class="badge badge-success">Stable</span></td>
-        </tr>
-        <tr>
-          <td>Metric card</td>
-          <td><code>.metric-card</code></td>
-          <td>KPIs and dashboards</td>
-          <td><span class="badge badge-success">Stable</span></td>
-        </tr>
-        <tr>
-          <td>Alert</td>
-          <td><code>.alert</code></td>
-          <td>Status messages</td>
-          <td><span class="badge badge-success">Stable</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="subsection">
+      <div class="subsection-label">Standard table</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead>
+          <tr><th>Service</th><th>Client</th><th>Status</th><th>Delivered</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Brand strategy</td>
+            <td><span class="badge badge-squid">Microsoft</span></td>
+            <td><span class="badge badge-success">Delivered</span></td>
+            <td class="mono">2026-Q1</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Content design</td>
+            <td><span class="badge badge-squid">Databricks</span></td>
+            <td><span class="badge badge-warning">In review</span></td>
+            <td class="mono">2026-Q2</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Campaign execution</td>
+            <td><span class="badge badge-squid">Adobe</span></td>
+            <td><span class="badge badge-wine">In progress</span></td>
+            <td class="mono">2026-Q3</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Striped variant — add <code>.striped</code></div>
+      <table class="table-rdc striped">
+        <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><code>--coral</code></td><td class="mono">#FF4F58</td><td>Primary CTA</td></tr>
+          <tr><td><code>--squid</code></td><td class="mono">#0D1724</td><td>Dark surfaces</td></tr>
+          <tr><td><code>--wine</code></td><td class="mono">#7F0046</td><td>Secondary accent</td></tr>
+          <tr><td><code>--mist</code></td><td class="mono">#ABDCE0</td><td>Soft accent</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ── FORMS ──────────────────────────────────────────────── -->
+  <div class="section" id="forms">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Forms</h2>
+    <p class="section-desc">Inputs use Coral as the focus ring color. Labels sit above inputs at 12px/600. Always associate labels with inputs via matching <code>for</code>/<code>id</code> attributes.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Form elements</div>
+      <div class="grid-2" style="margin-bottom:var(--space-6);">
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="demo-name">Full name</label>
+            <input class="input-rdc" id="demo-name" type="text" placeholder="Chris Telfer">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="demo-service">Service interest</label>
+            <select class="select-rdc" id="demo-service">
+              <option>Brand strategy</option>
+              <option>Content design</option>
+              <option>Campaign execution</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="demo-msg">Message</label>
+            <textarea class="input-rdc" id="demo-msg" rows="3" style="resize:vertical;" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button class="btn btn-primary">Submit enquiry</button>
+        </div>
+        <div>
+          <div class="subsection-label" style="margin-top:0;">CSS specs</div>
+          <table class="table-rdc">
+            <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+            <tbody>
+              <tr><td><code>.form-label</code></td><td>12px, 600, gray-500, tracking 0.02em</td></tr>
+              <tr><td><code>.input-rdc</code></td><td>14px, padding 9px 14px, border gray-300, radius 8px</td></tr>
+              <tr><td>Focus state</td><td>border-color: coral; shadow: 0 0 0 3px rgba(coral, 12%)</td></tr>
+              <tr><td>Placeholder</td><td>color gray-300</td></tr>
+              <tr><td><code>.select-rdc</code></td><td>Same as input; appearance: none</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── PAGE HEADER ────────────────────────────────────────── -->
+  <div class="section" id="page-header">
+    <div class="section-eyebrow">Patterns</div>
+    <h2 class="section-title">Page header</h2>
+    <p class="section-desc">The dark hero block is the standard opener for all RDC HTML deliverables. The "rd" watermark in the lower right is a brand signature — do not remove it.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Standard usage</div>
+      <div class="page-header" style="margin-bottom:var(--space-6);">
+        <div class="eyebrow">Red Door Collaborative</div>
+        <h1 class="page-header-title">Page title goes here</h1>
+        <p class="page-header-desc">One to two sentences describing the document's purpose and intended audience.</p>
+        <div class="header-meta">
+          <div class="header-meta-item">
+            <span class="header-meta-label">Version</span>
+            <span class="header-meta-value">1.0</span>
+          </div>
+          <div class="header-meta-item">
+            <span class="header-meta-label">Status</span>
+            <span class="header-meta-value">Draft</span>
+          </div>
+          <div class="header-meta-item">
+            <span class="header-meta-label">Owner</span>
+            <span class="header-meta-value">Brian Jensen</span>
+          </div>
+          <div class="header-meta-item">
+            <span class="header-meta-label">Client</span>
+            <span class="header-meta-value">Internal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">HTML pattern</div>
+      <div class="card">
+        <pre style="margin:0;font-size:12px;">&lt;div class="page-header"&gt;
+  &lt;div class="eyebrow"&gt;Red Door Collaborative&lt;/div&gt;
+  &lt;h1 class="page-header-title"&gt;Page title&lt;/h1&gt;
+  &lt;p class="page-header-desc"&gt;One or two sentence description.&lt;/p&gt;
+  &lt;div class="header-meta"&gt;
+    &lt;div class="header-meta-item"&gt;
+      &lt;span class="header-meta-label"&gt;Version&lt;/span&gt;
+      &lt;span class="header-meta-value"&gt;1.0&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- repeat header-meta-item for each datum --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Specs</div>
+      <table class="table-rdc">
+        <thead><tr><th>Element</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Background</td><td><code>var(--wine)</code> on Foundations page; <code>var(--surface-dark)</code> on document templates</td></tr>
+          <tr><td>Border radius</td><td>18px (<code>--radius-xl</code>)</td></tr>
+          <tr><td>Padding</td><td>3rem desktop · 1.5rem mobile</td></tr>
+          <tr><td>Watermark</td><td><code>::before</code> content: "rd", 200px, rgba(page-bg, 18%), abs bottom-right</td></tr>
+          <tr><td>Title</td><td>clamp(26–36px), 700, white, tracking -0.03em</td></tr>
+          <tr><td>Description</td><td>14px, rgba(white, 75%), max no limit</td></tr>
+          <tr><td>Meta label</td><td>10px, 600, uppercase, rgba(white, 70%)</td></tr>
+          <tr><td>Meta value</td><td>13px, 500, rgba(white, 90%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ── DARK MODE ──────────────────────────────────────────── -->
+  <div class="section" id="dark-mode">
+    <div class="section-eyebrow">Patterns</div>
+    <h2 class="section-title">Dark mode</h2>
+    <p class="section-desc">All RDC HTML output adapts automatically to OS dark mode preference via <code>@media (prefers-color-scheme: dark)</code>. Force overrides are available. Brand colors never change.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Force override</div>
+      <div class="card" style="margin-bottom:var(--space-6);">
+        <pre style="margin:0;">&lt;html data-theme="dark"&gt;   &lt;!-- force dark mode --&gt;
+&lt;html data-theme="light"&gt;  &lt;!-- force light mode --&gt;
+&lt;html&gt;                      &lt;!-- follow OS preference (default) --&gt;</pre>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-dot"></div>
+        <div class="alert-body">The FOUC prevention script in <code>&lt;head&gt;</code> reads the saved preference from localStorage and applies the correct <code>data-theme</code> attribute before CSS paints — preventing a flash of wrong theme on load.</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Tokens that change in dark mode</div>
+      <table class="table-rdc">
+        <thead><tr><th>Token</th><th>Light value</th><th>Dark value</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--page-bg</code></td><td class="mono">#F7F6F4</td><td class="mono">#070d17</td><td>Body background</td></tr>
+          <tr><td><code>--white</code></td><td class="mono">#FFFFFF</td><td class="mono">#141e2e</td><td>Card and panel surfaces</td></tr>
+          <tr><td><code>--gray-50</code></td><td class="mono">#FAFAFA</td><td class="mono">#111828</td><td>—</td></tr>
+          <tr><td><code>--gray-100</code></td><td class="mono">#F3F3F3</td><td class="mono">#1a2538</td><td>Metric cards, subtle bg</td></tr>
+          <tr><td><code>--gray-200</code></td><td class="mono">#E8E8E8</td><td>rgba(white, 8%)</td><td>Borders, dividers</td></tr>
+          <tr><td><code>--gray-500</code></td><td class="mono">#696969</td><td>rgba(white, 50%)</td><td>Muted text, labels</td></tr>
+          <tr><td><code>--gray-700</code></td><td class="mono">#444444</td><td>rgba(white, 68%)</td><td>Body copy</td></tr>
+          <tr><td><code>--gray-900</code></td><td class="mono">#1A1A1A</td><td>rgba(white, 90%)</td><td>Headings, strong text</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">What does not change</div>
+      <p class="text-muted" style="margin-bottom:var(--space-3);">Brand colors are identity constants — they never remap in dark mode.</p>
+      <div class="tag-row">
+        <span class="badge badge-coral">--coral #FF4F58</span>
+        <span class="badge badge-wine">--wine #7F0046</span>
+        <span class="badge badge-mist">--mist #ABDCE0</span>
+        <span class="badge badge-squid">--squid #0D1724</span>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Token discipline</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Always use CSS tokens: <code>var(--gray-700)</code>, <code>var(--white)</code>, <code>var(--page-bg)</code>.</p>
+          <p style="margin-top:8px;">Dark mode adapts automatically with zero extra code when tokens are used correctly.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Hardcode hex values for text or background: <code style="color:var(--dont-label-color,#b91c1c);">#444444</code>, <code style="color:var(--dont-label-color,#b91c1c);">#F3F3F3</code>.</p>
+          <p style="margin-top:8px;">Those values won't adapt and will break dark mode rendering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── LAYOUT TOGGLE ─────────────────────────────────────── -->
+  <div class="section" id="layout-toggle">
+    <div class="section-eyebrow">Patterns</div>
+    <h2 class="section-title">Layout toggle</h2>
+    <p class="section-desc">A fixed floating control injected by <code>rdc.js</code> that lets readers adjust alignment, text size, and theme without touching the code. Include in every HTML deliverable.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Controls</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-4);">
+        <thead><tr><th>Group</th><th>Options</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Align</td><td>Center · Left</td><td>Toggles content column between centered (default) and left-aligned</td></tr>
+          <tr><td>Size — Default</td><td>15px / 1.7 lh</td><td>Standard reading size</td></tr>
+          <tr><td>Size — Large</td><td>17px</td><td>Comfortable for presentation or client review</td></tr>
+          <tr><td>Size — Editorial</td><td>19px / 1.85 lh</td><td>Long-form reading, wide-format layouts</td></tr>
+          <tr><td>Theme</td><td>Light · Dark</td><td>Overrides the OS/browser dark mode preference</td></tr>
+        </tbody>
+      </table>
+      <p class="text-muted text-sm">Preferences are persisted in <code>localStorage</code> under the key <code>rdc-prefs</code> and restored on every subsequent page load.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Usage rules</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Include <code>rdc.js</code> before <code>&lt;/body&gt;</code> on every generated HTML deliverable — the toggle is injected automatically.</p>
+          <p style="margin-top:8px;">Keep Center and Default as the active starting state on all new pages.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Modify the toggle's <code>position: fixed</code> or z-index — it is designed to float above all content.</p>
+          <p style="margin-top:8px;">Remove the toggle from client-facing deliverables unless embedding in a context where a fixed element would conflict with an outer shell.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── ACCESSIBILITY ─────────────────────────────────────── -->
+  <div class="section" id="accessibility">
+    <div class="section-eyebrow">Guidelines</div>
+    <h2 class="section-title">Accessibility</h2>
+    <p class="section-desc">All RDC HTML output targets WCAG 2.1 Level AA. As of v2.1, this library passes axe-core audit with zero violations across 33 checks.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Color contrast — key pairings</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead><tr><th>Pairing</th><th>Ratio</th><th>Normal text</th><th>Large text</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="color-dot" style="background:#fff;border:1px solid #ccc;"></span>White on Squid</td>
+            <td><strong>16.1:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Primary dark surface — excellent</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#0D1724;"></span>Squid on White</td>
+            <td><strong>16.1:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Primary body text</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#fff;border:1px solid #ccc;"></span>White on Wine</td>
+            <td><strong>10.6:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Reversed labels on Wine surfaces</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#FF4F58;"></span>Coral on Squid</td>
+            <td><strong>5.6:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Active nav, accents on dark bg</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#FF4F58;"></span>Coral on White</td>
+            <td><strong>3.2:1</strong></td>
+            <td><span class="badge badge-warning">Fail</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Large/bold text and eyebrows only — never body copy</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#696969;"></span>Gray-500 on White</td>
+            <td><strong>5.5:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Updated in v2.1 from #888 → #696969</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#C8002A;"></span>Eyebrow (#C8002A) on White</td>
+            <td><strong>6.0:1</strong></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td><span class="badge badge-success">Pass</span></td>
+            <td>Accessible coral for small text on light bg</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-coral">
+        <div class="alert-dot"></div>
+        <div class="alert-body"><div class="alert-title">Coral contrast constraint</div>Coral (#FF4F58) achieves only 3.2:1 against white — sufficient for large headings, button labels, and eyebrow tags (≥18px or ≥14px bold), but not for paragraph copy or small UI labels on light backgrounds. Use <code>#C8002A</code> (the accessible variant) for small eyebrow text.</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Interactive elements</div>
+      <table class="table-rdc">
+        <thead><tr><th>Element</th><th>Requirement</th></tr></thead>
+        <tbody>
+          <tr><td>Focus indicators</td><td>All focusable elements must have a visible focus ring. Never suppress <code>outline</code> without a custom visible replacement. RDC CSS provides a Coral ring on inputs.</td></tr>
+          <tr><td>Buttons</td><td>Always include descriptive label text. Icon-only buttons require <code>aria-label</code>.</td></tr>
+          <tr><td>Links</td><td>Color alone is insufficient (WCAG 1.4.1). Pair color with underline or another non-color cue.</td></tr>
+          <tr><td>Form labels</td><td>Associate every label with its input via matching <code>for</code>/<code>id</code> or <code>aria-label</code>.</td></tr>
+          <tr><td>Images</td><td>Descriptive <code>alt</code> text on all informational images. <code>alt=""</code> on purely decorative images.</td></tr>
+          <tr><td>Keyboard access</td><td>All scrollable <code>&lt;pre&gt;</code> blocks receive <code>tabindex="0"</code> automatically from <code>rdc.js</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Semantic structure</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Use semantic HTML: <code>&lt;main&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>.</p>
+          <p style="margin-top:8px;">Maintain logical heading order (H1 → H2 → H3). Never skip levels for visual sizing.</p>
+          <p style="margin-top:8px;">Include <code>lang="en"</code> on the <code>&lt;html&gt;</code> element.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Use <code>&lt;div&gt;</code> for structural landmarks or navigation regions.</p>
+          <p style="margin-top:8px;">Skip heading levels — use CSS classes to resize, not H4 where H2 belongs.</p>
+          <p style="margin-top:8px;">Use tables for page layout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── BRAND RULES ────────────────────────────────────────── -->
+  <div class="section" id="brand-rules">
+    <div class="section-eyebrow">Guidelines</div>
+    <h2 class="section-title">Brand rules</h2>
+    <p class="section-desc">Core constraints that protect consistency across every touchpoint. When in doubt, ask the design lead before deviating.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Logo</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Use approved Box files. Match logo variant to background — light logo on dark, dark logo on light.</p>
+          <p style="margin-top:8px;">Maintain clear space equal to the logo's bounding square on all four sides.</p>
+          <p style="margin-top:8px;">Display the full lockup at ≥85px digital width.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Recreate or approximate the logo from scratch. Add drop shadows, glows, or effects.</p>
+          <p style="margin-top:8px;">Stretch, skew, rotate, or recolor the mark.</p>
+          <p style="margin-top:8px;">Place the logo below the 85px minimum digital size.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Color</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Lead with Coral for all CTAs and primary actions.</p>
+          <p style="margin-top:8px;">Use Squid to anchor dark surfaces. Use the Wine-to-Coral gradient for decorative accents only.</p>
+          <p style="margin-top:8px;">Limit to 3 brand colors per layout.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Use Mist as a primary page background — it is accent only.</p>
+          <p style="margin-top:8px;">Set Coral body text on white backgrounds (3.2:1 fails WCAG AA for normal text).</p>
+          <p style="margin-top:8px;">Introduce colors outside the approved palette without design lead sign-off.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Typography</div>
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="do-label">Do</div>
+          <p>Use Suisse Int'l for all licensed brand communications. DM Sans in all HTML.</p>
+          <p style="margin-top:8px;">Sentence case for all headings. Build hierarchy through weight, not size alone.</p>
+          <p style="margin-top:8px;">Ensure body text is accessible: 15px minimum, gray-700 or darker.</p>
+        </div>
+        <div class="dont-box">
+          <div class="dont-label">Don't</div>
+          <p>Use more than 3 weights on a single page or spread.</p>
+          <p style="margin-top:8px;">Title case or all-caps for headings (eyebrows excepted).</p>
+          <p style="margin-top:8px;">Mix Suisse Int'l and DM Sans in the same HTML file.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Photography & illustration</div>
+      <p>RDC photography should feel candid, human, and professional — never stock-photo staged. Illustrations use the brand palette with a geometric line style. All custom assets are maintained in Box under <strong>Red Door File Database → Red Door Guidelines and Assets → RDC 2025 Branding</strong>.</p>
+    </div>
+  </div>
+
+
+  <!-- ── NAMING ─────────────────────────────────────────────── -->
+  <div class="section" id="naming">
+    <div class="section-eyebrow">Guidelines</div>
+    <h2 class="section-title">Naming conventions</h2>
+    <p class="section-desc">Kebab-case everywhere except JavaScript. Consistent naming prevents search friction and ambiguity across teams.</p>
+
+    <div class="subsection">
+      <div class="subsection-label">Convention table</div>
+      <table class="table-rdc" style="margin-bottom:var(--space-6);">
+        <thead><tr><th>Context</th><th>Convention</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>CSS class names</td><td><code>kebab-case</code></td><td><code>.doc-card</code>, <code>.page-header</code>, <code>.layout-toggle-btn</code></td></tr>
+          <tr><td>CSS custom properties</td><td><code>kebab-case</code></td><td><code>--coral</code>, <code>--page-bg</code>, <code>--space-4</code></td></tr>
+          <tr><td>HTML element IDs</td><td><code>kebab-case</code></td><td><code>id="quick-start"</code>, <code>id="dark-mode"</code></td></tr>
+          <tr><td>File names</td><td><code>kebab-case</code></td><td><code>rdc.css</code>, <code>hub.html</code>, <code>acme-q2-report.html</code></td></tr>
+          <tr><td>Folder names</td><td><code>kebab-case</code></td><td><code>templates/</code>, <code>client-assets/</code></td></tr>
+          <tr><td>JavaScript variables</td><td><code>camelCase</code></td><td><code>prefersDark</code>, <code>initBtn</code>, <code>pageHeader</code></td></tr>
+          <tr><td>JavaScript functions</td><td><code>camelCase</code></td><td><code>copyPrompt()</code>, <code>setActive()</code></td></tr>
+          <tr><td>Git branch names</td><td><code>kebab-case</code></td><td><code>feature/dark-mode</code>, <code>fix/align-toggle</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Deliverable file naming</div>
+      <p style="margin-bottom:var(--space-3);">Pattern: <code>client-name-document-type.html</code> or with version suffix.</p>
+      <div class="tag-row">
+        <span class="badge badge-success">acme-brand-brief-v2.html</span>
+        <span class="badge badge-success">databricks-q2-report.html</span>
+        <span class="badge badge-success">rdc-ops-playbook.html</span>
+      </div>
+      <div class="tag-row" style="margin-top:var(--space-2);">
+        <span class="badge badge-coral">Brand Brief v2.html ✗</span>
+        <span class="badge badge-coral">Q2_Report_Final.html ✗</span>
+        <span class="badge badge-coral">report copy (3).html ✗</span>
+      </div>
+      <p class="text-muted text-sm" style="margin-top:var(--space-3);">Never use spaces, underscores, or mixed case in file names shared externally. Lowercase and hyphens only.</p>
+    </div>
   </div>
 
 
@@ -500,7 +1504,7 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
         <div class="doc-card-body">
           <div class="eyebrow">Template</div>
           <h3>Document</h3>
-          <p>Long-form article with fixed sidebar navigation. Best for knowledge base entries, SOPs, and guides.</p>
+          <p>Long-form article with fixed sidebar navigation. Best for SOPs, guides, and knowledge base entries.</p>
           <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
         </div>
       </a>
@@ -518,7 +1522,7 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
         <div class="doc-card-body">
           <div class="eyebrow">Template</div>
           <h3>Report</h3>
-          <p>Metrics report, performance summary, or presentation. Metric cards, data tables, and narrative sections.</p>
+          <p>Metrics report or performance summary. Metric cards, data tables, and narrative sections.</p>
           <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
         </div>
       </a>
@@ -529,44 +1533,6 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
           <h3>Client report</h3>
           <p>Password-protected deliverable for specific client access. StatiCrypt protection built in.</p>
           <div class="doc-card-lock">Password-protected</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-
-  <!-- ── GUIDELINES ──────────────────────────────────────────── -->
-  <div class="section" id="guidelines">
-    <div class="section-eyebrow">Output</div>
-    <h2 class="section-title">Guidelines</h2>
-    <p class="section-desc">Living documents maintained by the design and content leads. Update these whenever brand decisions change.</p>
-
-    <div class="grid-3">
-      <a href="./guidelines/brand-identity.md" class="doc-card">
-        <div class="doc-card-bar"></div>
-        <div class="doc-card-body">
-          <div class="eyebrow">Visual · Current</div>
-          <h3>Brand identity</h3>
-          <p>Colors, typography, logo rules, spacing, and dark mode guidance.</p>
-          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
-        </div>
-      </a>
-      <a href="./guidelines/voice-tone.md" class="doc-card">
-        <div class="doc-card-bar" style="background:var(--wine);"></div>
-        <div class="doc-card-body">
-          <div class="eyebrow">Content · In progress</div>
-          <h3>Voice & tone</h3>
-          <p>Our communication personality, tone calibration by context, and what to avoid.</p>
-          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
-        </div>
-      </a>
-      <a href="./guidelines/content-style.md" class="doc-card">
-        <div class="doc-card-bar" style="background:var(--squid);"></div>
-        <div class="doc-card-body">
-          <div class="eyebrow">Content · In progress</div>
-          <h3>Content style</h3>
-          <p>Grammar, formatting, capitalization, dates, numbers, and document structure.</p>
-          <div class="doc-card-lock doc-card-open" style="color:var(--gray-500);">Open access</div>
         </div>
       </a>
     </div>
@@ -588,23 +1554,28 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
 &lt;link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-azure-brand-library/azure.css"&gt;</pre>
     </div>
 
-    <div class="card">
-      <div class="subsection-label">Example client override file (azure.css)</div>
+    <div class="card" style="margin-bottom:var(--space-4);">
+      <div class="subsection-label">Example override file (azure.css)</div>
       <pre style="margin:0;"><span style="color:var(--gray-500);">/* Azure token overrides — all structural CSS comes from rdc.css */</span>
 :root {
-  --coral:  #0078d4;  <span style="color:var(--gray-500);">/* Microsoft blue replaces Coral */</span>
-  --squid:  #323130;  <span style="color:var(--gray-500);">/* Fluent neutral dark */</span>
-  --wine:   #005a9e;  <span style="color:var(--gray-500);">/* Azure deep blue */</span>
-  --page-bg: #faf9f8; <span style="color:var(--gray-500);">/* Fluent background */</span>
+  --coral:    #0078d4;  <span style="color:var(--gray-500);">/* Microsoft blue replaces Coral */</span>
+  --squid:    #323130;  <span style="color:var(--gray-500);">/* Fluent neutral dark */</span>
+  --wine:     #005a9e;  <span style="color:var(--gray-500);">/* Azure deep blue */</span>
+  --page-bg:  #faf9f8;  <span style="color:var(--gray-500);">/* Fluent background */</span>
   --font-sans: 'Segoe UI', system-ui, sans-serif;
 }</pre>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-dot"></div>
+      <div class="alert-body"><strong>Live example:</strong> The RDC Azure Brand Library at <a href="https://reddoorcollaborative.github.io/rdc-azure-brand-library/" target="_blank">reddoorcollaborative.github.io/rdc-azure-brand-library/</a> uses this exact pattern — one override file on top of this foundation.</div>
     </div>
   </div>
 
 
   <!-- FOOTER -->
   <div class="page-footer">
-    Red Door Collaborative · Foundations Library · <a href="https://github.com/reddoorcollaborative/rdc-foundations-library">GitHub</a> · <a href="./CHANGELOG.md">Changelog</a>
+    Red Door Collaborative · Foundations Library · <a href="https://github.com/reddoorcollaborative/rdc-foundations-library">GitHub</a> · <a href="./CHANGELOG.md">Changelog</a> · <a href="./guidelines/brand-identity.md">Brand guide</a>
   </div>
 
 </div>
