@@ -356,7 +356,9 @@ hr {
 /* ——— Sidebar navigation ——— */
 .sidebar-logo {
   display: flex; align-items: center; gap: 10px;
-  margin-bottom: 0.6rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-decoration: none;
 }
 .sidebar-logo:hover { text-decoration: none; }
@@ -366,9 +368,9 @@ hr {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.70);
   letter-spacing: 0.01em;
-  padding: 0 2px 1.25rem;
+  text-align: center;
+  padding: 0.75rem 2px 0;
   margin-bottom: 1.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-version {
