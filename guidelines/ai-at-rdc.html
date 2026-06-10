@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI at RDC — Red Door Collaborative</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css">
+<style>
+.page-header-meta { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.7; max-width:560px; margin-top:0.75rem; }
+.page-header-meta strong { color:rgba(255,255,255,0.85); font-weight:600; }
+.content h2 { margin:56px 0 14px; scroll-margin-top:1rem; font-size:26px; }
+.content h2:first-child { margin-top:0; }
+.content h3 { margin:32px 0 10px; scroll-margin-top:1rem; font-size:18px; }
+.content h4 { margin:22px 0 6px; }
+.content p  { margin:10px 0 14px; }
+.content ul, .content ol { margin:10px 0 16px; }
+.content li { margin:5px 0; font-size:15px; }
+.content li > ul, .content li > ol { margin:6px 0; }
+.content strong { color:var(--gray-900); }
+.content pre code { background:transparent; padding:0; font-size:inherit; color:inherit; }
+.content table { border-collapse:collapse; width:100%; margin:16px 0; font-size:13px; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); overflow:hidden; }
+.content table thead th { background:var(--gray-100); font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); text-align:left; padding:12px 14px; border-bottom:1px solid var(--gray-200); }
+.content table tbody td { padding:10px 14px; border-bottom:1px solid var(--gray-200); color:var(--gray-900); vertical-align:top; }
+.content table tbody tr:last-child td { border-bottom:none; }
+.tool-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:1.25rem 1.5rem; }
+.tool-name { font-size:15px; font-weight:700; color:var(--gray-900); margin-bottom:3px; }
+.tool-maker { font-size:11px; color:var(--gray-400); font-weight:500; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:8px; }
+.tool-desc { font-size:13px; color:var(--gray-600); margin:0 0 10px; line-height:1.5; }
+.tool-uses { display:flex; flex-wrap:wrap; gap:5px; }
+[data-theme="dark"] .tool-card { background:#1e2533; border-color:rgba(255,255,255,0.08); }
+[data-theme="dark"] .tool-name { color:rgba(255,255,255,0.90); }
+[data-theme="dark"] .tool-maker { color:rgba(255,255,255,0.30); }
+[data-theme="dark"] .tool-desc { color:rgba(255,255,255,0.55); }
+.prompt-block { background:var(--gray-50); border:1px solid var(--gray-200); border-left:3px solid var(--coral); border-radius:var(--radius-md); padding:14px 16px; margin:12px 0 20px; font-size:13px; color:var(--gray-700); line-height:1.6; }
+.prompt-block code { background:var(--gray-100); padding:1px 5px; border-radius:3px; font-size:12px; }
+[data-theme="dark"] .prompt-block { background:#0d1525; border-color:rgba(255,255,255,0.08); border-left-color:var(--coral); color:rgba(255,255,255,0.65); }
+[data-theme="dark"] .prompt-block code { background:rgba(255,255,255,0.07); }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a class="sidebar-logo" href="https://reddoorcollaborative.github.io/rdc-central/">
+    <div class="logo-mark">rd</div>
+    <div class="logo-text">Red Door<br>Collaborative</div>
+  </a>
+  <div class="sidebar-page-title">AI at RDC</div>
+
+  <div class="nav-section-label">Sections</div>
+  <a class="nav-link active" href="#philosophy">Philosophy</a>
+  <a class="nav-link" href="#tools">Approved tools</a>
+  <a class="nav-link" href="#prompting">Prompt practices</a>
+  <a class="nav-link" href="#review">Review &amp; attribution</a>
+  <a class="nav-link" href="#boundaries">Boundaries</a>
+
+  <div class="nav-section-label">Guidelines</div>
+  <a class="nav-link" href="writing-style.html">Writing style</a>
+  <a class="nav-link" href="social-media.html">Social media</a>
+  <a class="nav-link" href="file-taxonomy.html">File taxonomy</a>
+  <a class="nav-link" href="../index.html">Foundations library</a>
+
+  <div class="sidebar-version">Updated: June 2026</div>
+</aside>
+
+<main class="sidebar-content">
+<div class="sidebar-inner">
+
+  <div class="page-header">
+    <div class="eyebrow">Guidelines &middot; Operations</div>
+    <div class="page-header-title">Using AI at RDC</div>
+    <div class="page-header-meta">
+      How we use AI tools — thoughtfully, transparently, and in ways that make our work better without compromising quality or client trust.
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h2 id="philosophy">Philosophy</h2>
+    <p>AI is a tool, not a replacement for judgment. At RDC, we use AI to move faster on the things that don't require our full expertise, so we can spend more time on the things that do.</p>
+
+    <p>The standard for everything we produce — with or without AI — is the same: it has to be accurate, on-brand, and something we'd put our name on. If AI got you 80% there but the last 20% is wrong or generic, the output isn't done yet.</p>
+
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card" style="border-top:3px solid var(--coral);">
+        <strong style="display:block;margin-bottom:6px;">Accelerate</strong>
+        <p style="font-size:13px;color:var(--gray-600);margin:0;">Use AI to do the tedious and time-consuming things faster — drafts, summaries, reformatting, research synthesis.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--coral);">
+        <strong style="display:block;margin-bottom:6px;">Elevate</strong>
+        <p style="font-size:13px;color:var(--gray-600);margin:0;">AI output is a starting point. Your judgment, context, and voice are what turn a draft into something worth delivering.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--coral);">
+        <strong style="display:block;margin-bottom:6px;">Protect</strong>
+        <p style="font-size:13px;color:var(--gray-600);margin:0;">Client data, confidential information, and anything under NDA stays out of AI tools that train on user inputs.</p>
+      </div>
+    </div>
+
+    <h2 id="tools">Approved tools</h2>
+    <p>The following AI tools are used at RDC. New tools should be reviewed with Brian before use on client work.</p>
+
+    <div class="grid-2" style="margin-bottom:1.5rem;">
+
+      <div class="tool-card">
+        <div class="tool-name">Claude</div>
+        <div class="tool-maker">Anthropic</div>
+        <p class="tool-desc">Primary AI for writing, editing, coding, analysis, and document creation. Claude Code is used for building and maintaining the RDC GitHub ecosystem.</p>
+        <div class="tool-uses">
+          <span class="badge badge-neutral">Writing &amp; editing</span>
+          <span class="badge badge-neutral">Strategy drafts</span>
+          <span class="badge badge-neutral">Code &amp; HTML</span>
+          <span class="badge badge-neutral">Analysis</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-name">Microsoft Copilot</div>
+        <div class="tool-maker">Microsoft</div>
+        <p class="tool-desc">Integrated with Microsoft 365. Useful for summarizing long documents, drafting in Word/Outlook, and working with data in Excel. Subject to Microsoft's data privacy terms.</p>
+        <div class="tool-uses">
+          <span class="badge badge-neutral">Summarization</span>
+          <span class="badge badge-neutral">Email drafts</span>
+          <span class="badge badge-neutral">Document editing</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-name">ChatGPT</div>
+        <div class="tool-maker">OpenAI</div>
+        <p class="tool-desc">General-purpose AI. Use for brainstorming, research synthesis, and quick drafts. Do not use ChatGPT (free tier) for sensitive client content — inputs may be used for training.</p>
+        <div class="tool-uses">
+          <span class="badge badge-neutral">Brainstorming</span>
+          <span class="badge badge-neutral">Research</span>
+          <span class="badge badge-coral">No client data (free)</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-name">GitHub Copilot</div>
+        <div class="tool-maker">Microsoft / GitHub</div>
+        <p class="tool-desc">In-editor code completion. Used when writing HTML, CSS, and JavaScript in VS Code. Helpful for repetitive markup and boilerplate — always review suggestions.</p>
+        <div class="tool-uses">
+          <span class="badge badge-neutral">Code completion</span>
+          <span class="badge badge-neutral">HTML / CSS</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="alert alert-info" style="margin-bottom:1.5rem;">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">Tool approval process</div>
+        Before using a new AI tool on client work, confirm with Brian that the tool's data handling meets our client commitments. This is especially important for tools that offer "free" tiers — free often means your inputs train the model.
+      </div>
+    </div>
+
+    <h2 id="prompting">Prompt practices</h2>
+    <p>The quality of AI output is almost entirely determined by the quality of the prompt. These practices consistently produce better results.</p>
+
+    <h3>Provide role and context first</h3>
+    <p>Tell the AI who it is and what the work is for before issuing a task. Generic prompts produce generic output.</p>
+
+    <div class="prompt-block">
+      <strong style="color:var(--gray-900);">Example:</strong> "You're a communications strategist writing for Red Door Collaborative, a boutique consulting firm that works with tech companies and nonprofits. Our voice is direct, warm, and credible — never corporate or jargon-heavy. Write a LinkedIn caption about [topic]."
+    </div>
+
+    <h3>Specify format and length</h3>
+    <p>AI tools will default to a generic length and format. Tell it exactly what you want: "Write 3 bullet points," "Keep this under 100 words," "Format this as a table with columns for X, Y, and Z."</p>
+
+    <h3>Give examples when possible</h3>
+    <p>If you have a sample of the style you want, include it. "Match the tone of this example: [paste example]." This works better than describing the tone abstractly.</p>
+
+    <h3>Iterate, don't rephrase and repeat</h3>
+    <p>If the first draft isn't right, tell the AI what's wrong specifically. "The second paragraph is too formal — rewrite it to sound more conversational." Vague feedback gets vague improvements.</p>
+
+    <h3>Useful prompt structures for common tasks</h3>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Prompt structure</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First draft of a document</td>
+          <td>"Draft a [doc type] for [audience]. It should cover: [list topics]. Tone: [description]. Length: approximately [X] words."</td>
+        </tr>
+        <tr>
+          <td>Editing existing copy</td>
+          <td>"Edit this for clarity and concision. Remove jargon. Keep the meaning intact. [paste copy]"</td>
+        </tr>
+        <tr>
+          <td>Extracting key points</td>
+          <td>"Summarize the 5 most important points from this document. Use bullet points. [paste document]"</td>
+        </tr>
+        <tr>
+          <td>Generating options</td>
+          <td>"Give me 5 different opening lines for this LinkedIn post. Each should take a different angle. [paste post context]"</td>
+        </tr>
+        <tr>
+          <td>Reformat for a new context</td>
+          <td>"Rewrite this email as a LinkedIn post. Adjust the tone for a public audience. Keep it under 200 words."</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="review">Review &amp; attribution</h2>
+
+    <h3>Always review AI output before use</h3>
+    <p>AI can be confidently wrong. Verify any facts, statistics, dates, or specific claims against a primary source before including them in client work. AI models have knowledge cutoffs and hallucinate details.</p>
+
+    <h3>Make it yours</h3>
+    <p>AI output should be a starting point. Read it critically, edit it for voice, and add the context and nuance that only you have. If you can publish it without changing a word, you probably need to push the AI harder — or the work didn't need AI to begin with.</p>
+
+    <h3>Attribution</h3>
+    <p>RDC does not currently have a blanket disclosure policy for AI-assisted content. Use this judgment framework:</p>
+    <ul>
+      <li><strong>Client deliverables:</strong> AI-assisted drafting is fine; the final product must reflect your analysis and judgment. No disclosure required unless the client has asked specifically.</li>
+      <li><strong>Proposals and SOWs:</strong> Same standard — AI can draft, but all commitments must be things we can actually deliver.</li>
+      <li><strong>Social content:</strong> No disclosure required for AI-assisted writing that you've substantially edited and approved.</li>
+      <li><strong>Research or analysis:</strong> Do not present AI-generated analysis as primary research. AI can help you synthesize; primary sources are the evidence.</li>
+    </ul>
+
+    <h2 id="boundaries">Boundaries</h2>
+    <p>These are hard rules — not guidelines, not judgment calls.</p>
+
+    <div class="alert alert-warning" style="margin-bottom:0.75rem;">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">No confidential client data in free-tier AI tools</div>
+        Client names, project details, financial data, unreleased strategy, and any information covered by an NDA must not be entered into any AI tool that trains on user inputs (including free-tier ChatGPT). Paid tiers with data-privacy agreements are a different question — confirm first.
+      </div>
+    </div>
+
+    <div class="alert alert-warning" style="margin-bottom:0.75rem;">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">Don't publish unreviewed AI output</div>
+        Nothing generated by AI goes to a client or goes public without a human reading it, editing it, and signing off on it. Speed is not worth the risk of a factual error, a tone miss, or a claim we can't stand behind.
+      </div>
+    </div>
+
+    <div class="alert alert-warning" style="margin-bottom:1.5rem;">
+      <div class="alert-dot"></div>
+      <div class="alert-body">
+        <div class="alert-title">No AI-generated images of real people without consent</div>
+        Do not use AI image tools to generate likenesses of clients, partners, or colleagues. This applies to deepfakes, stylized portraits, and any synthetic media involving identifiable individuals.
+      </div>
+    </div>
+
+    <h3>When to push back on AI</h3>
+    <p>AI tools are optimistic by nature — they'll attempt any task and deliver something that looks complete. Be skeptical when:</p>
+    <ul>
+      <li>The output contains specific statistics, dates, or quotes you didn't provide.</li>
+      <li>The writing is technically correct but sounds like nobody in particular wrote it.</li>
+      <li>The AI generated a "comprehensive" framework for a topic that actually requires deep expertise to address well.</li>
+      <li>The output is exactly what you asked for, but you're not sure it's actually right.</li>
+    </ul>
+
+  </div>
+
+  <div class="page-footer">
+    Red Door Collaborative &middot; AI at RDC &middot; <a href="https://github.com/reddoorcollaborative">GitHub</a>
+  </div>
+
+</div>
+</main>
+
+<script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"></script>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.content h2');
+  var navLinks = document.querySelectorAll('.nav-link');
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  headings.forEach(function (h) { obs.observe(h); });
+})();
+</script>
+</body>
+</html>

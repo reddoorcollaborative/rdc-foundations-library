@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Taxonomy — Red Door Collaborative</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('rdc-prefs')||'{}');document.documentElement.setAttribute('data-theme',p.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.css">
+<style>
+/* Document typography */
+.page-header-meta { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.7; max-width:560px; margin-top:0.75rem; }
+.page-header-meta strong { color:rgba(255,255,255,0.85); font-weight:600; }
+.content h2 { margin:56px 0 14px; scroll-margin-top:1rem; font-size:26px; }
+.content h2:first-child { margin-top:0; }
+.content h3 { margin:32px 0 10px; font-size:18px; }
+.content p  { margin:10px 0 14px; }
+.content ul, .content ol { margin:10px 0 16px; }
+.content li { margin:5px 0; font-size:15px; }
+.content li > ul { margin:6px 0; }
+.content strong { color:var(--gray-900); }
+.content table { border-collapse:collapse; width:100%; margin:16px 0; font-size:13px; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); overflow:hidden; }
+.content table thead th { background:var(--gray-100); font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); text-align:left; padding:12px 14px; border-bottom:1px solid var(--gray-200); }
+.content table tbody td { padding:10px 14px; border-bottom:1px solid var(--gray-200); color:var(--gray-900); vertical-align:top; }
+.content table tbody tr:last-child td { border-bottom:none; }
+
+/* Name builder — preview */
+.preview-wrap{background:var(--squid);border-radius:var(--radius-lg);padding:2rem 2.5rem;margin-bottom:2rem;position:relative;overflow:hidden;}
+.preview-wrap::before{content:'rd';position:absolute;right:-10px;bottom:-30px;font-size:140px;font-weight:700;color:rgba(255,255,255,0.03);letter-spacing:-0.05em;line-height:1;pointer-events:none;font-family:var(--font-sans);}
+.preview-label{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:10px;}
+.preview-name{font-family:var(--font-mono);font-size:clamp(13px,2vw,19px);font-weight:500;color:#fff;line-height:1.4;word-break:break-all;min-height:1.5em;letter-spacing:0.01em;}
+.preview-name .seg-empty{color:rgba(255,255,255,0.2);}
+.preview-name .sep{color:rgba(255,255,255,0.25);}
+.preview-name .seg-kingdom{color:var(--coral);}
+.preview-name .seg-phylum{color:var(--mist);}
+.preview-name .seg-class{color:rgba(255,210,120,1);}
+.preview-name .seg-genus{color:rgba(255,255,255,0.90);}
+.preview-name .seg-am{color:rgba(255,155,80,1);}
+.preview-name .seg-date{color:rgba(90,170,255,1);}
+.preview-name .seg-client{color:rgba(60,210,200,1);}
+.preview-name .seg-creator{color:rgba(90,200,145,1);}
+.preview-name .seg-resource{color:rgba(225,185,60,1);}
+.preview-name .seg-species{color:rgba(180,140,255,1);}
+.preview-name .seg-ext{color:rgba(255,255,255,0.35);}
+.preview-copy{position:absolute;top:1.25rem;right:1.25rem;}
+.copy-btn{font-family:var(--font-sans);font-size:11px;font-weight:600;padding:6px 14px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.65);cursor:pointer;transition:background 0.15s,color 0.15s;letter-spacing:0.02em;}
+.copy-btn:hover{background:rgba(255,255,255,0.14);color:#fff;}
+.copy-btn.copied{background:rgba(34,197,94,0.20);border-color:rgba(34,197,94,0.35);color:#86efac;}
+.preview-warnings{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;min-height:0;}
+.warn-chip{font-size:10px;font-weight:600;padding:3px 10px;border-radius:var(--radius-pill);background:rgba(255,79,88,0.15);color:#ff8a90;border:1px solid rgba(255,79,88,0.25);}
+
+/* Rank legend */
+.rank-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;}
+.rank-pip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:var(--gray-700);}
+.rank-pip::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;}
+.rank-pip.kingdom::before{background:var(--coral);}
+.rank-pip.phylum::before{background:var(--mist);}
+.rank-pip.class::before{background:rgba(255,210,120,1);}
+.rank-pip.genus::before{background:var(--gray-900);}
+.rank-pip.am-initials::before{background:rgba(255,155,80,1);}
+.rank-pip.draft-date::before{background:rgba(90,170,255,1);}
+.rank-pip.client-name::before{background:rgba(60,210,200,1);}
+.rank-pip.creator::before{background:rgba(90,200,145,1);}
+.rank-pip.resource::before{background:rgba(225,185,60,1);}
+.rank-pip.species::before{background:rgba(180,140,255,1);}
+[data-theme="dark"] .rank-pip{color:rgba(255,255,255,0.55);}
+
+/* Builder form */
+.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+@media(max-width:700px){.builder-grid{grid-template-columns:1fr;}}
+.rank-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;position:relative;}
+.rank-card-bar{height:3px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;position:absolute;top:0;left:0;right:0;}
+.rank-card.kingdom .rank-card-bar{background:var(--coral);}
+.rank-card.phylum  .rank-card-bar{background:var(--mist);}
+.rank-card.class   .rank-card-bar{background:rgba(255,210,120,1);}
+.rank-card.genus   .rank-card-bar{background:var(--gray-300);}
+.rank-card.am-initials .rank-card-bar{background:rgba(255,155,80,1);}
+.rank-card.draft-date  .rank-card-bar{background:rgba(90,170,255,1);}
+.rank-card.client-name .rank-card-bar{background:rgba(60,210,200,1);}
+.rank-card.creator     .rank-card-bar{background:rgba(90,200,145,1);}
+.rank-card.resource    .rank-card-bar{background:rgba(225,185,60,1);}
+.rank-card.species     .rank-card-bar{background:rgba(180,140,255,1);}
+.section-divider{grid-column:1/-1;display:flex;align-items:center;gap:10px;padding-top:0.75rem;margin-top:0.25rem;border-top:1px solid var(--gray-150,#eaecf0);}
+.section-divider-label{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-400);white-space:nowrap;}
+.section-divider-sub{font-size:11px;color:var(--gray-400);}
+.rank-name{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-500);margin-bottom:3px;}
+.rank-title{font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:2px;}
+.rank-desc{font-size:11px;color:var(--gray-500);line-height:1.5;margin-bottom:10px;}
+.rank-input{font-family:var(--font-mono);font-size:13px;width:100%;padding:8px 11px;border:1px solid var(--gray-200);border-radius:var(--radius-md);background:var(--white);color:var(--gray-900);outline:none;transition:border-color 0.15s,box-shadow 0.15s;letter-spacing:0.02em;box-sizing:border-box;}
+.rank-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,79,88,0.10);}
+.rank-input.has-warning{border-color:rgba(255,79,88,0.5);}
+.rank-input::placeholder{color:var(--gray-300);font-weight:400;}
+.rank-hints{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.hint-pill{font-size:10px;font-weight:500;padding:2px 8px;border-radius:var(--radius-pill);background:var(--gray-100);color:var(--gray-700);cursor:pointer;border:1px solid var(--gray-200);transition:background 0.12s,color 0.12s;font-family:var(--font-mono);}
+.hint-pill:hover{background:var(--gray-200);color:var(--gray-900);}
+.phylum-toggle{display:flex;gap:0;border:1px solid var(--gray-200);border-radius:var(--radius-md);overflow:hidden;margin-bottom:8px;}
+.phylum-btn{flex:1;font-family:var(--font-sans);font-size:11px;font-weight:500;padding:5px 8px;background:var(--white);color:var(--gray-500);border:none;cursor:pointer;transition:background 0.12s,color 0.12s;border-right:1px solid var(--gray-200);}
+.phylum-btn:last-child{border-right:none;}
+.phylum-btn.active{background:var(--squid);color:#fff;}
+.actions-row{display:flex;gap:10px;align-items:center;margin-top:1.5rem;}
+.btn-reset{font-family:var(--font-sans);font-size:12px;font-weight:500;padding:8px 18px;border-radius:var(--radius-pill);border:1px solid var(--gray-200);background:transparent;color:var(--gray-500);cursor:pointer;transition:background 0.12s,color 0.12s;}
+.btn-reset:hover{background:var(--gray-100);color:var(--gray-900);}
+
+/* Example cards */
+.ex-list{display:flex;flex-direction:column;gap:10px;margin-top:1.25rem;}
+.ex-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:12px 16px;}
+.ex-name{font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--squid);margin-bottom:6px;word-break:break-all;}
+.ex-meta{display:flex;flex-wrap:wrap;gap:6px;}
+
+/* Dark mode overrides */
+[data-theme="dark"] .preview-wrap{background:#0a0f1a;}
+[data-theme="dark"] .rank-card{background:#1e2533;border-color:rgba(255,255,255,0.08);}
+[data-theme="dark"] .rank-title{color:rgba(255,255,255,0.90);}
+[data-theme="dark"] .rank-desc{color:rgba(255,255,255,0.42);}
+[data-theme="dark"] .rank-input{background:#0d1525;border-color:rgba(255,255,255,0.10);color:rgba(255,255,255,0.90);}
+[data-theme="dark"] .rank-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,79,88,0.12);}
+[data-theme="dark"] .hint-pill{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);}
+[data-theme="dark"] .hint-pill:hover{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.90);}
+[data-theme="dark"] .phylum-toggle{border-color:rgba(255,255,255,0.08);}
+[data-theme="dark"] .phylum-btn{background:#0d1525;color:rgba(255,255,255,0.42);border-color:rgba(255,255,255,0.08);}
+[data-theme="dark"] .phylum-btn.active{background:var(--squid);color:#fff;}
+[data-theme="dark"] .rank-name{color:rgba(255,255,255,0.30);}
+[data-theme="dark"] .genus .rank-card-bar{background:rgba(255,255,255,0.30);}
+[data-theme="dark"] .creator .rank-card-bar{background:rgba(90,200,145,0.80);}
+[data-theme="dark"] .section-divider{border-color:rgba(255,255,255,0.07);}
+[data-theme="dark"] .section-divider-label,[data-theme="dark"] .section-divider-sub{color:rgba(255,255,255,0.25);}
+[data-theme="dark"] .ex-card{background:#1e2533;border-color:rgba(255,255,255,0.08);}
+[data-theme="dark"] .ex-name{color:rgba(255,255,255,0.90);}
+[data-theme="dark"] .btn-reset{border-color:rgba(255,255,255,0.10);color:rgba(255,255,255,0.42);}
+[data-theme="dark"] .btn-reset:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.90);}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a class="sidebar-logo" href="https://reddoorcollaborative.github.io/rdc-central/">
+    <div class="logo-mark">rd</div>
+    <div class="logo-text">Red Door<br>Collaborative</div>
+  </a>
+  <div class="sidebar-page-title">File Taxonomy</div>
+
+  <div class="nav-section-label">Sections</div>
+  <a class="nav-link active" href="#overview">Overview</a>
+  <a class="nav-link" href="#convention">Naming convention</a>
+  <a class="nav-link" href="#builder">Name builder</a>
+  <a class="nav-link" href="#reference">Reference table</a>
+  <a class="nav-link" href="#examples">Examples</a>
+
+  <div class="nav-section-label">Guidelines</div>
+  <a class="nav-link" href="writing-style.html">Writing style</a>
+  <a class="nav-link" href="social-media.html">Social media</a>
+  <a class="nav-link" href="ai-at-rdc.html">AI at RDC</a>
+  <a class="nav-link" href="../index.html">Foundations library</a>
+
+  <div class="sidebar-version">Updated: June 2026</div>
+</aside>
+
+<main class="sidebar-content">
+<div class="sidebar-inner">
+
+  <div class="page-header">
+    <div class="eyebrow">Guidelines &middot; Operations</div>
+    <div class="page-header-title">File taxonomy &amp; naming</div>
+    <div class="page-header-meta">
+      RDC's file naming convention — what each segment means, when to use it, and an interactive builder to generate compliant filenames.
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h2 id="overview">Overview</h2>
+    <p>Every file RDC creates follows the same taxonomic naming system. The convention makes files self-describing — you can determine the client, fiscal year, project class, and version state from the filename alone, without opening it.</p>
+
+    <h3>Why it matters</h3>
+    <ul>
+      <li><strong>Findability.</strong> Files sort predictably in SharePoint and Windows Explorer. MSFT files cluster together; FY26 files cluster together.</li>
+      <li><strong>Archive integrity.</strong> When a project ends, you can identify and move every file belonging to it without guessing.</li>
+      <li><strong>Version clarity.</strong> The revision suffix (R1, R2, FINAL) eliminates "which version is this?" confusion.</li>
+      <li><strong>Stewardship.</strong> Creator and AM initials establish ownership without needing metadata.</li>
+    </ul>
+
+    <h3>The two patterns</h3>
+    <p>There are two filename patterns depending on the file type:</p>
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="subsection-label" style="margin-bottom:8px;">General files</div>
+      <code style="font-size:13px;">[KINGDOM]-[PHYLUM]-[CLASS]-[GENUS]-[CREATOR]-[SPECIES].[ext]</code>
+      <p style="font-size:12px;color:var(--gray-500);margin:6px 0 0;">Use for any regular project file, deliverable, or internal document.</p>
+    </div>
+    <div class="card">
+      <div class="subsection-label" style="margin-bottom:8px;">SOW / contract documents</div>
+      <code style="font-size:13px;">[KINGDOM]-[PHYLUM]-[CLASS]-[AM]-[YYYY-MM-DD]-[CLIENT]-[GENUS]-[RESOURCE]-[SPECIES].[ext]</code>
+      <p style="font-size:12px;color:var(--gray-500);margin:6px 0 0;">The contract fields (AM, date, client, resource) are individually optional — include whichever apply to the document.</p>
+    </div>
+
+    <h2 id="convention">Naming convention</h2>
+    <p>Each segment of a filename is a <strong>rank</strong> in the taxonomy, separated by hyphens. Spaces are never permitted within any rank — use CamelCase for multi-word values.</p>
+
+    <h3>Rank definitions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>What it is</th>
+          <th>Format</th>
+          <th>Required?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Kingdom</strong></td>
+          <td>Client prefix or "RDC" for internal files</td>
+          <td><code>MSFT</code> / <code>RDC</code> / <code>NMSDC</code></td>
+          <td>Always</td>
+        </tr>
+        <tr>
+          <td><strong>Phylum</strong></td>
+          <td>Fiscal year or calendar year</td>
+          <td><code>FY26</code> / <code>2026</code></td>
+          <td>Always</td>
+        </tr>
+        <tr>
+          <td><strong>Class</strong></td>
+          <td>PO number (client) or functional category (RDC)</td>
+          <td><code>PO12345</code> / <code>SOW</code> / <code>Internal</code></td>
+          <td>Always</td>
+        </tr>
+        <tr style="background:rgba(255,155,80,0.04);">
+          <td><strong>AM Initials</strong></td>
+          <td>Account manager or drafter initials</td>
+          <td><code>BJ</code> / <code>AM</code> / <code>CT</code></td>
+          <td>SOW / contract</td>
+        </tr>
+        <tr style="background:rgba(90,170,255,0.04);">
+          <td><strong>Draft Date</strong></td>
+          <td>ISO date the document was drafted</td>
+          <td><code>2026-05-29</code></td>
+          <td>SOW / contract</td>
+        </tr>
+        <tr style="background:rgba(60,210,200,0.04);">
+          <td><strong>Client Name</strong></td>
+          <td>Individual or team the document is for</td>
+          <td><code>AdrienneKrefft</code> / <code>FinOpsTeam</code></td>
+          <td>SOW / contract</td>
+        </tr>
+        <tr>
+          <td><strong>Genus</strong></td>
+          <td>What the file actually is — its identity</td>
+          <td><code>BrandSlides</code> / <code>BudgetModel</code></td>
+          <td>Always</td>
+        </tr>
+        <tr>
+          <td><strong>Creator</strong></td>
+          <td>File owner's initials (general files only)</td>
+          <td><code>BJ</code> / <code>CT</code></td>
+          <td>Optional</td>
+        </tr>
+        <tr style="background:rgba(225,185,60,0.04);">
+          <td><strong>Resource</strong></td>
+          <td>RDC team member assigned; always wrapped in <code>[ ]</code></td>
+          <td><code>[SStL]</code></td>
+          <td>SOW / optional</td>
+        </tr>
+        <tr>
+          <td><strong>Species</strong></td>
+          <td>Version state</td>
+          <td><code>R1</code> / <code>DRAFT</code> / <code>FINAL</code></td>
+          <td>Recommended</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Rules to remember</h3>
+    <ul>
+      <li>No spaces anywhere in the filename. Use CamelCase within a rank segment.</li>
+      <li>Hyphens separate ranks. Do not use underscores.</li>
+      <li>Kingdom is always uppercase (<code>MSFT</code>, not <code>msft</code>).</li>
+      <li>Use <code>FY##</code> for client projects tied to a fiscal year; <code>YYYY</code> for calendar-anchored internal documents.</li>
+      <li>The Resource segment is always wrapped in square brackets: <code>[SStL]</code>.</li>
+    </ul>
+
+    <h2 id="builder">Name builder</h2>
+    <p>Fill in any combination of fields — the preview assembles your filename in real time and flags any convention violations.</p>
+
+    <!-- Live preview -->
+    <div class="preview-wrap">
+      <div class="preview-label">Assembled file name</div>
+      <div class="preview-name" id="preview-name">
+        <span class="seg-empty">fill in the fields below&hellip;</span>
+      </div>
+      <div class="preview-warnings" id="preview-warnings"></div>
+      <div class="preview-copy">
+        <button class="copy-btn" id="copy-btn" onclick="copyName()">Copy</button>
+      </div>
+    </div>
+
+    <!-- Rank color legend -->
+    <div class="rank-legend">
+      <span class="rank-pip kingdom">Kingdom</span>
+      <span class="rank-pip phylum">Phylum</span>
+      <span class="rank-pip class">Class</span>
+      <span class="rank-pip am-initials">AM initials</span>
+      <span class="rank-pip draft-date">Draft date</span>
+      <span class="rank-pip client-name">Client / team</span>
+      <span class="rank-pip genus">Genus</span>
+      <span class="rank-pip creator">Creator</span>
+      <span class="rank-pip resource">Resource</span>
+      <span class="rank-pip species">Species</span>
+    </div>
+
+    <!-- Builder form -->
+    <div class="builder-grid">
+
+      <div class="rank-card kingdom">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Kingdom</div>
+        <div class="rank-title">Client / RDC prefix</div>
+        <div class="rank-desc">Uppercase abbreviation of the client, or &ldquo;RDC&rdquo; for internal files.</div>
+        <input class="rank-input" id="f-kingdom" type="text" placeholder="e.g. MSFT" maxlength="20"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false" list="kingdom-list">
+        <datalist id="kingdom-list">
+          <option value="RDC">
+          <option value="MSFT">
+          <option value="DBX">
+          <option value="NMSDC">
+        </datalist>
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-kingdom','RDC')">RDC</span>
+          <span class="hint-pill" onclick="setField('f-kingdom','MSFT')">MSFT</span>
+          <span class="hint-pill" onclick="setField('f-kingdom','DBX')">DBX</span>
+          <span class="hint-pill" onclick="setField('f-kingdom','NMSDC')">NMSDC</span>
+        </div>
+      </div>
+
+      <div class="rank-card phylum">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Phylum</div>
+        <div class="rank-title">FY tag or calendar year</div>
+        <div class="rank-desc">Lifecycle period for archive bucketing. FY format for client projects; YYYY for calendar-anchored documents.</div>
+        <div class="phylum-toggle">
+          <button class="phylum-btn active" id="fy-btn" onclick="setPhylumMode('fy')">FY##</button>
+          <button class="phylum-btn" id="yr-btn" onclick="setPhylumMode('yyyy')">YYYY</button>
+        </div>
+        <input class="rank-input" id="f-phylum" type="text" placeholder="FY26" maxlength="10"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints" id="phylum-hints">
+          <span class="hint-pill" onclick="setField('f-phylum','FY25')">FY25</span>
+          <span class="hint-pill" onclick="setField('f-phylum','FY26')">FY26</span>
+          <span class="hint-pill" onclick="setField('f-phylum','FY27')">FY27</span>
+        </div>
+      </div>
+
+      <div class="rank-card class">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Class</div>
+        <div class="rank-title">PO number or category</div>
+        <div class="rank-desc">For client work: the purchase order number. For RDC internal: a functional category (SOW, MSA, BrandGuidelines, Internal).</div>
+        <input class="rank-input" id="f-class" type="text" placeholder="e.g. PO12345 or SOW" maxlength="40"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-class','SOW')">SOW</span>
+          <span class="hint-pill" onclick="setField('f-class','MSA')">MSA</span>
+          <span class="hint-pill" onclick="setField('f-class','BrandGuidelines')">BrandGuidelines</span>
+          <span class="hint-pill" onclick="setField('f-class','Internal')">Internal</span>
+        </div>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-divider-label">Contract / SOW fields</span>
+        <span class="section-divider-sub">— optional; use for SOW, MSA, and contract documents</span>
+      </div>
+
+      <div class="rank-card am-initials">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Contract</div>
+        <div class="rank-title">AM / creator initials</div>
+        <div class="rank-desc">Initials of the Account Manager or author who drafted this document.</div>
+        <input class="rank-input" id="f-am" type="text" placeholder="e.g. BJ or AM" maxlength="6"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-am','BJ')">BJ &mdash; Brian Jensen</span>
+          <span class="hint-pill" onclick="setField('f-am','AM')">AM &mdash; Amy Metzler</span>
+          <span class="hint-pill" onclick="setField('f-am','CT')">CT &mdash; Chris Telfer</span>
+        </div>
+      </div>
+
+      <div class="rank-card draft-date">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Contract</div>
+        <div class="rank-title">Draft date</div>
+        <div class="rank-desc">Original draft date in ISO format (YYYY-MM-DD). Provides a point-in-time reference.</div>
+        <input class="rank-input" id="f-date" type="text" placeholder="YYYY-MM-DD" maxlength="10"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setToday()">Today</span>
+        </div>
+      </div>
+
+      <div class="rank-card client-name">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Contract</div>
+        <div class="rank-title">Client or team name</div>
+        <div class="rank-desc">The individual or team this document is for. CamelCase, no spaces.</div>
+        <input class="rank-input" id="f-client" type="text" placeholder="e.g. AdrienneKrefft" maxlength="60"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-client','AdrienneKrefft')">AdrienneKrefft</span>
+          <span class="hint-pill" onclick="setField('f-client','FinOpsTeam')">FinOpsTeam</span>
+          <span class="hint-pill" onclick="setField('f-client','MentorshipCohort')">MentorshipCohort</span>
+        </div>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-divider-label">File descriptor</span>
+      </div>
+
+      <div class="rank-card genus">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Genus</div>
+        <div class="rank-title">File descriptor / project name</div>
+        <div class="rank-desc">What the file actually is. CamelCase, no spaces. This is the segment people scan for in a file list.</div>
+        <input class="rank-input" id="f-genus" type="text" placeholder="e.g. BudgetProject" maxlength="60"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-genus','BudgetProject')">BudgetProject</span>
+          <span class="hint-pill" onclick="setField('f-genus','MentorshipAgreement')">MentorshipAgreement</span>
+          <span class="hint-pill" onclick="setField('f-genus','BrandSlides')">BrandSlides</span>
+        </div>
+      </div>
+
+      <div class="rank-card creator">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">General &mdash; optional</div>
+        <div class="rank-title">File creator initials</div>
+        <div class="rank-desc">2–4 uppercase initials of the file owner. For general (non-SOW) files. Leave blank for shared or team files.</div>
+        <input class="rank-input" id="f-creator" type="text" placeholder="e.g. BJ or AM" maxlength="6"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-creator','BJ')">BJ &mdash; Brian Jensen</span>
+          <span class="hint-pill" onclick="setField('f-creator','AM')">AM &mdash; Amy Metzler</span>
+          <span class="hint-pill" onclick="setField('f-creator','CT')">CT &mdash; Chris Telfer</span>
+        </div>
+      </div>
+
+      <div class="rank-card resource">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Contract &mdash; optional</div>
+        <div class="rank-title">RDC resource</div>
+        <div class="rank-desc">RDC team member assigned to this work. Automatically wrapped in square brackets in the filename (e.g. <code>[SStL]</code>).</div>
+        <input class="rank-input" id="f-resource" type="text" placeholder="e.g. SStL or BJ" maxlength="10"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-resource','BJ')">BJ</span>
+          <span class="hint-pill" onclick="setField('f-resource','AM')">AM</span>
+          <span class="hint-pill" onclick="setField('f-resource','CT')">CT</span>
+          <span class="hint-pill" onclick="setField('f-resource','SStL')">SStL</span>
+        </div>
+      </div>
+
+      <div class="rank-card species">
+        <div class="rank-card-bar"></div>
+        <div class="rank-name">Species</div>
+        <div class="rank-title">Revision suffix</div>
+        <div class="rank-desc">State within version history. R# for iterative revisions, DRAFT for works-in-progress, FINAL for approved deliverables.</div>
+        <input class="rank-input" id="f-species" type="text" placeholder="e.g. R1 or FINAL" maxlength="20"
+          oninput="builderUpdate()" autocomplete="off" spellcheck="false">
+        <div class="rank-hints">
+          <span class="hint-pill" onclick="setField('f-species','DRAFT')">DRAFT</span>
+          <span class="hint-pill" onclick="setField('f-species','R1')">R1</span>
+          <span class="hint-pill" onclick="setField('f-species','R2')">R2</span>
+          <span class="hint-pill" onclick="setField('f-species','R3')">R3</span>
+          <span class="hint-pill" onclick="setField('f-species','FINAL')">FINAL</span>
+        </div>
+      </div>
+
+      <div class="rank-card" style="border-top:3px solid var(--gray-200);">
+        <div class="rank-card-bar" style="background:var(--gray-200);"></div>
+        <div class="rank-name">Optional</div>
+        <div class="rank-title">File extension</div>
+        <div class="rank-desc">Appended to complete the filename. Leave blank to omit.</div>
+        <select class="rank-input" id="f-ext" onchange="extChange()">
+          <option value="">— none —</option>
+          <option value="pdf">.pdf</option>
+          <option value="docx">.docx</option>
+          <option value="pptx">.pptx</option>
+          <option value="xlsx">.xlsx</option>
+          <option value="mp4">.mp4</option>
+          <option value="mov">.mov</option>
+          <option value="zip">.zip</option>
+          <option value="png">.png</option>
+          <option value="jpg">.jpg</option>
+          <option value="ai">.ai</option>
+          <option value="indd">.indd</option>
+          <option value="custom">Custom…</option>
+        </select>
+        <input class="rank-input" id="f-ext-custom" type="text" placeholder="type extension (no dot)"
+          maxlength="10" style="display:none;margin-top:8px;" oninput="builderUpdate()" spellcheck="false">
+      </div>
+
+    </div>
+
+    <div class="actions-row">
+      <button class="btn-reset" onclick="resetAll()">&#8634; Reset all fields</button>
+    </div>
+
+    <h2 id="reference">Reference table</h2>
+    <p>Quick lookup for each rank — format, purpose, and when it applies.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Element</th>
+          <th>Format</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-coral">Kingdom</span></td>
+          <td>Client or RDC prefix</td>
+          <td><code>MSFT</code> / <code>RDC</code></td>
+          <td>Broadest grouping; determines steward and access scope</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">Phylum</span></td>
+          <td>FY or YYYY</td>
+          <td><code>FY26</code> / <code>2026</code></td>
+          <td>Lifecycle period; determines archive bucketing</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:rgba(255,210,120,0.15);color:rgba(160,120,0,1);">Class</span></td>
+          <td>PO # or category</td>
+          <td><code>PO12345</code> / <code>SOW</code></td>
+          <td>Project / contractual unit (clients) or function (RDC)</td>
+        </tr>
+        <tr style="background:rgba(255,155,80,0.04);">
+          <td><span class="badge" style="background:rgba(255,155,80,0.15);color:rgba(180,90,10,1);">AM Initials</span></td>
+          <td>Account Manager <em style="font-size:11px;color:var(--gray-500);">SOW / contract</em></td>
+          <td><code>AM</code> / <code>BJ</code></td>
+          <td>Drafter&rsquo;s initials; follows the document class directly</td>
+        </tr>
+        <tr style="background:rgba(90,170,255,0.04);">
+          <td><span class="badge" style="background:rgba(90,170,255,0.15);color:rgba(20,80,180,1);">Draft Date</span></td>
+          <td>ISO draft date <em style="font-size:11px;color:var(--gray-500);">SOW / contract</em></td>
+          <td><code>2026-05-29</code></td>
+          <td>Point-in-time reference; hyphens are part of the format</td>
+        </tr>
+        <tr style="background:rgba(60,210,200,0.04);">
+          <td><span class="badge" style="background:rgba(60,210,200,0.15);color:rgba(0,110,105,1);">Client Name</span></td>
+          <td>Individual or team <em style="font-size:11px;color:var(--gray-500);">SOW / contract</em></td>
+          <td><code>AdrienneKrefft</code></td>
+          <td>Co-signing party, contact, or assigned team; CamelCase</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-neutral">Genus</span></td>
+          <td>File descriptor</td>
+          <td><code>BudgetProject</code></td>
+          <td>The actual identity of the document — what it is</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:rgba(90,200,145,0.15);color:rgba(30,140,90,1);">Creator</span></td>
+          <td>Creator initials <em style="font-size:11px;color:var(--gray-500);">general files</em></td>
+          <td><code>BJ</code> / <code>CT</code></td>
+          <td>File owner; for non-SOW files; omit for shared files</td>
+        </tr>
+        <tr style="background:rgba(225,185,60,0.04);">
+          <td><span class="badge" style="background:rgba(225,185,60,0.15);color:rgba(130,100,0,1);">Resource</span></td>
+          <td>RDC assignee <em style="font-size:11px;color:var(--gray-500);">SOW / contract</em></td>
+          <td><code>[SStL]</code></td>
+          <td>RDC team member assigned; always wrapped in <code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:rgba(180,140,255,0.15);color:rgba(140,90,220,1);">Species</span></td>
+          <td>Revision suffix</td>
+          <td><code>R1</code> / <code>FINAL</code></td>
+          <td>State within version history</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="examples">Examples</h2>
+    <p>Real-world filenames following the convention, annotated by rank.</p>
+
+    <div class="ex-list">
+
+      <div class="ex-card">
+        <div class="ex-name">MSFT-FY27-SOW-AM-2026-05-29-AdrienneKrefft-BudgetProject-[SStL].docx</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">MSFT</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">FY27</span>
+          <span class="badge" style="background:rgba(255,210,120,0.15);color:rgba(160,120,0,1);">SOW</span>
+          <span class="badge" style="background:rgba(255,155,80,0.15);color:rgba(180,90,10,1);">AM</span>
+          <span class="badge" style="background:rgba(90,170,255,0.15);color:rgba(20,80,180,1);">2026-05-29</span>
+          <span class="badge" style="background:rgba(60,210,200,0.15);color:rgba(0,110,105,1);">AdrienneKrefft</span>
+          <span class="badge badge-neutral">BudgetProject</span>
+          <span class="badge" style="background:rgba(225,185,60,0.15);color:rgba(130,100,0,1);">[SStL]</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-name">MSFT-FY26-PO12345-AdminVideoRefresh-AM-R1.mp4</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">MSFT</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">FY26</span>
+          <span class="badge" style="background:rgba(255,210,120,0.15);color:rgba(160,120,0,1);">PO12345</span>
+          <span class="badge badge-neutral">AdminVideoRefresh</span>
+          <span class="badge" style="background:rgba(90,200,145,0.15);color:rgba(30,140,90,1);">AM</span>
+          <span class="badge" style="background:rgba(180,140,255,0.15);color:rgba(140,90,220,1);">R1</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-name">RDC-FY26-Internal-BudgetModel-CT-FINAL.xlsx</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">RDC</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">FY26</span>
+          <span class="badge" style="background:rgba(255,210,120,0.15);color:rgba(160,120,0,1);">Internal</span>
+          <span class="badge badge-neutral">BudgetModel</span>
+          <span class="badge" style="background:rgba(90,200,145,0.15);color:rgba(30,140,90,1);">CT</span>
+          <span class="badge" style="background:rgba(180,140,255,0.15);color:rgba(140,90,220,1);">FINAL</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-name">RDC-2025-BrandGuidelines-R1.pdf</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">RDC</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">2025</span>
+          <span class="badge" style="background:rgba(255,210,120,0.15);color:rgba(160,120,0,1);">BrandGuidelines</span>
+          <span class="badge" style="background:rgba(180,140,255,0.15);color:rgba(140,90,220,1);">R1</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-name">NMSDC-2026-MentorshipAgreement.pdf</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">NMSDC</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">2026</span>
+          <span class="badge badge-neutral">MentorshipAgreement</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-name">RDC-2025-SocialHeaders-R1.zip</div>
+        <div class="ex-meta">
+          <span class="badge badge-coral">RDC</span>
+          <span class="badge" style="background:rgba(171,220,224,0.20);color:var(--mist);">2025</span>
+          <span class="badge badge-neutral">SocialHeaders</span>
+          <span class="badge" style="background:rgba(180,140,255,0.15);color:rgba(140,90,220,1);">R1</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    Red Door Collaborative &middot; File taxonomy &middot; <a href="https://github.com/reddoorcollaborative">GitHub</a>
+  </div>
+
+</div>
+</main>
+
+<script src="https://reddoorcollaborative.github.io/rdc-foundations-library/rdc.js"></script>
+<script>
+/* Scroll-spy */
+(function () {
+  var headings = document.querySelectorAll('.content h2');
+  var navLinks = document.querySelectorAll('.nav-link');
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  headings.forEach(function (h) { obs.observe(h); });
+})();
+
+/* Phylum mode */
+var phylumMode = 'fy';
+function setPhylumMode(m) {
+  phylumMode = m;
+  document.getElementById('fy-btn').classList.toggle('active', m === 'fy');
+  document.getElementById('yr-btn').classList.toggle('active', m === 'yyyy');
+  var hints = document.getElementById('phylum-hints');
+  var inp = document.getElementById('f-phylum');
+  if (m === 'fy') {
+    hints.innerHTML = '<span class="hint-pill" onclick="setField(\'f-phylum\',\'FY25\')">FY25</span><span class="hint-pill" onclick="setField(\'f-phylum\',\'FY26\')">FY26</span><span class="hint-pill" onclick="setField(\'f-phylum\',\'FY27\')">FY27</span>';
+    inp.placeholder = 'e.g. FY26';
+  } else {
+    hints.innerHTML = '<span class="hint-pill" onclick="setField(\'f-phylum\',\'2024\')">2024</span><span class="hint-pill" onclick="setField(\'f-phylum\',\'2025\')">2025</span><span class="hint-pill" onclick="setField(\'f-phylum\',\'2026\')">2026</span>';
+    inp.placeholder = 'e.g. 2026';
+  }
+  builderUpdate();
+}
+
+/* Extension toggle */
+function extChange() {
+  var custom = document.getElementById('f-ext-custom');
+  custom.style.display = document.getElementById('f-ext').value === 'custom' ? 'block' : 'none';
+  if (document.getElementById('f-ext').value !== 'custom') builderUpdate();
+}
+
+/* Helpers */
+function setField(id, val) {
+  document.getElementById(id).value = val;
+  builderUpdate();
+}
+function getVal(id) { return document.getElementById(id).value.trim(); }
+function hasSpaces(s) { return /\s/.test(s); }
+function hasSpecial(s) { return /[^A-Za-z0-9\-\.]/.test(s); }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function setToday() {
+  var d = new Date();
+  var mm = String(d.getMonth() + 1).padStart(2, '0');
+  var dd = String(d.getDate()).padStart(2, '0');
+  document.getElementById('f-date').value = d.getFullYear() + '-' + mm + '-' + dd;
+  builderUpdate();
+}
+
+/* Main update */
+function builderUpdate() {
+  var kingdom  = getVal('f-kingdom');
+  var phylum   = getVal('f-phylum');
+  var cls      = getVal('f-class');
+  var am       = getVal('f-am');
+  var date     = getVal('f-date');
+  var client   = getVal('f-client');
+  var genus    = getVal('f-genus');
+  var creator  = getVal('f-creator');
+  var resource = getVal('f-resource');
+  var species  = getVal('f-species');
+  var extSel   = document.getElementById('f-ext').value;
+  var ext      = extSel === 'custom' ? getVal('f-ext-custom') : extSel;
+  var resourcePart = resource ? ('[' + resource + ']') : '';
+  var warnings = [];
+
+  var stdFields = [
+    {id:'f-kingdom', val:kingdom,  label:'Prefix'},
+    {id:'f-phylum',  val:phylum,   label:'Phylum'},
+    {id:'f-class',   val:cls,      label:'Class'},
+    {id:'f-am',      val:am,       label:'AM Initials'},
+    {id:'f-client',  val:client,   label:'Client Name'},
+    {id:'f-genus',   val:genus,    label:'Genus'},
+    {id:'f-creator', val:creator,  label:'Creator'},
+    {id:'f-resource',val:resource, label:'Resource'},
+    {id:'f-species', val:species,  label:'Species'},
+  ];
+  stdFields.forEach(function(f) {
+    var inp = document.getElementById(f.id);
+    var bad = false;
+    if (f.val && hasSpaces(f.val))   { warnings.push(f.label + ': spaces not allowed'); bad = true; }
+    if (f.val && hasSpecial(f.val))  { warnings.push(f.label + ': only letters, numbers, and hyphens'); bad = true; }
+    inp.classList.toggle('has-warning', bad);
+  });
+
+  var dateInp = document.getElementById('f-date');
+  if (date) {
+    if (hasSpaces(date)) { warnings.push('Draft Date: spaces not allowed'); dateInp.classList.add('has-warning'); }
+    else if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { warnings.push('Draft Date: expected YYYY-MM-DD'); dateInp.classList.add('has-warning'); }
+    else { dateInp.classList.remove('has-warning'); }
+  } else { dateInp.classList.remove('has-warning'); }
+
+  if (phylum) {
+    if (phylumMode === 'fy'   && !/^FY\d{2,4}$/i.test(phylum)) warnings.push('Phylum: expected FY## (e.g. FY26)');
+    if (phylumMode === 'yyyy' && !/^\d{4}$/.test(phylum))        warnings.push('Phylum: expected 4-digit year (e.g. 2026)');
+  }
+  if (am      && !/^[A-Z]{2,4}$/.test(am))      warnings.push('AM Initials: use 2–4 uppercase letters');
+  if (creator && !/^[A-Z]{2,4}$/.test(creator)) warnings.push('Creator: use 2–4 uppercase letters');
+
+  var parts = [kingdom, phylum, cls, am, date, client, genus, creator, resourcePart, species].filter(function(p){ return p.length > 0; });
+  var previewEl = document.getElementById('preview-name');
+  if (parts.length === 0) {
+    previewEl.innerHTML = '<span class="seg-empty">fill in the fields below…</span>';
+  } else {
+    var segs = [
+      kingdom  ? ('<span class="seg-kingdom">'  + escHtml(kingdom)  + '</span>') : '',
+      phylum   ? ('<span class="sep">-</span><span class="seg-phylum">'   + escHtml(phylum)   + '</span>') : '',
+      cls      ? ('<span class="sep">-</span><span class="seg-class">'    + escHtml(cls)      + '</span>') : '',
+      am       ? ('<span class="sep">-</span><span class="seg-am">'       + escHtml(am)       + '</span>') : '',
+      date     ? ('<span class="sep">-</span><span class="seg-date">'     + escHtml(date)     + '</span>') : '',
+      client   ? ('<span class="sep">-</span><span class="seg-client">'   + escHtml(client)   + '</span>') : '',
+      genus    ? ('<span class="sep">-</span><span class="seg-genus">'    + escHtml(genus)    + '</span>') : '',
+      creator  ? ('<span class="sep">-</span><span class="seg-creator">'  + escHtml(creator)  + '</span>') : '',
+      resource ? ('<span class="sep">-</span><span class="seg-resource">[' + escHtml(resource) + ']</span>') : '',
+      species  ? ('<span class="sep">-</span><span class="seg-species">'  + escHtml(species)  + '</span>') : '',
+      ext      ? ('<span class="seg-ext">.'   + escHtml(ext)      + '</span>') : '',
+    ];
+    var rendered = segs.filter(function(s){ return s; }).join('');
+    rendered = rendered.replace(/^<span class="sep">-<\/span>/, '');
+    previewEl.innerHTML = rendered;
+  }
+
+  var warnEl = document.getElementById('preview-warnings');
+  warnEl.innerHTML = warnings.map(function(w){ return '<span class="warn-chip">' + escHtml(w) + '</span>'; }).join('');
+}
+
+function getAssembledName() {
+  var kingdom  = getVal('f-kingdom');
+  var phylum   = getVal('f-phylum');
+  var cls      = getVal('f-class');
+  var am       = getVal('f-am');
+  var date     = getVal('f-date');
+  var client   = getVal('f-client');
+  var genus    = getVal('f-genus');
+  var creator  = getVal('f-creator');
+  var resource = getVal('f-resource');
+  var species  = getVal('f-species');
+  var extSel   = document.getElementById('f-ext').value;
+  var ext      = extSel === 'custom' ? getVal('f-ext-custom') : extSel;
+  var resourcePart = resource ? ('[' + resource + ']') : '';
+  var parts = [kingdom, phylum, cls, am, date, client, genus, creator, resourcePart, species].filter(function(p){ return p.length > 0; });
+  var name = parts.join('-');
+  if (ext) name += '.' + ext;
+  return name;
+}
+
+function copyName() {
+  var name = getAssembledName();
+  if (!name) return;
+  navigator.clipboard.writeText(name).then(function() {
+    var btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function resetAll() {
+  ['f-kingdom','f-phylum','f-class','f-am','f-date','f-client','f-genus','f-creator','f-resource','f-species','f-ext-custom'].forEach(function(id){
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('f-ext').value = '';
+  document.getElementById('f-ext-custom').style.display = 'none';
+  document.querySelectorAll('.rank-input').forEach(function(i){ i.classList.remove('has-warning'); });
+  builderUpdate();
+}
+
+builderUpdate();
+</script>
+</body>
+</html>
