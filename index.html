@@ -28,6 +28,7 @@
   <a class="nav-link" href="#gradients">Gradients</a>
   <a class="nav-link" href="#typography">Typography</a>
   <a class="nav-link" href="#spacing">Spacing & layout</a>
+  <a class="nav-link" href="#tokens">Tokens</a>
   <a class="nav-link" href="#logo">Logo & marks</a>
   <a class="nav-link" href="#backgrounds">Backgrounds</a>
 
@@ -544,13 +545,38 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
       <p class="text-muted text-sm">All grids use <code>gap: var(--space-3)</code>. <code>.grid-auto</code> auto-fits columns at <code>minmax(280px, 1fr)</code> — ideal for card grids of unknown count.</p>
     </div>
 
+  </div>
+
+
+  <!-- ── TOKENS ────────────────────────────────────────────── -->
+  <div class="section" id="tokens">
+    <div class="section-eyebrow">Foundation</div>
+    <h2 class="section-title">Radius & shadow tokens</h2>
+    <p class="section-desc">Visual reference for border radius and elevation tokens. Use CSS custom properties — never hardcode values.</p>
+
     <div class="subsection">
       <div class="subsection-label">Border radius tokens</div>
       <div class="grid-4" style="gap:var(--space-4);">
-        <div style="background:var(--squid);height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">sm · 4px</span></div>
-        <div style="background:var(--squid);height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">md · 8px</span></div>
-        <div style="background:var(--squid);height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">lg · 12px</span></div>
-        <div style="background:var(--squid);height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#fff;">pill · 999px</span></div>
+        <div style="background:var(--squid);height:56px;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <span class="mono" style="color:#fff;">--radius-sm</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.45);">4px · badges, code</span>
+        </div>
+        <div style="background:var(--squid);height:56px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <span class="mono" style="color:#fff;">--radius-md</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.45);">8px · inputs, alerts</span>
+        </div>
+        <div style="background:var(--squid);height:56px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <span class="mono" style="color:#fff;">--radius-lg</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.45);">12px · cards</span>
+        </div>
+        <div style="background:var(--squid);height:56px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <span class="mono" style="color:#fff;">--radius-xl</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.45);">18px · hero blocks</span>
+        </div>
+        <div style="background:var(--squid);height:56px;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;grid-column:span 4;">
+          <span class="mono" style="color:#fff;">--radius-pill</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.45);">999px · buttons, tags</span>
+        </div>
       </div>
     </div>
 
@@ -558,17 +584,17 @@ DOCS: https://reddoorcollaborative.github.io/rdc-foundations-library/</pre>
       <div class="subsection-label">Shadow tokens</div>
       <div class="grid-3" style="gap:var(--space-4);">
         <div class="card" style="box-shadow:var(--shadow-sm);">
-          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow SM</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">--shadow-sm</div>
           <div class="mono">0 1px 3px rgba(13,23,36,0.08)</div>
           <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Subtle hover lift</div>
         </div>
         <div class="card" style="box-shadow:var(--shadow-md);">
-          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow MD</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">--shadow-md</div>
           <div class="mono">0 4px 12px rgba(13,23,36,0.10)</div>
           <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Card hover, dropdowns</div>
         </div>
         <div class="card" style="box-shadow:var(--shadow-lg);">
-          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Shadow LG</div>
+          <div style="font-size:12px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">--shadow-lg</div>
           <div class="mono">0 8px 24px rgba(13,23,36,0.12)</div>
           <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Modals, popovers</div>
         </div>
