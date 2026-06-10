@@ -291,7 +291,7 @@ hr {
 
 /* ——— Dark hero header ——— */
 .page-header {
-  background: var(--wine);
+  background: var(--squid);
   border-radius: var(--radius-xl);
   padding: 3rem;
   margin-bottom: var(--space-8);
